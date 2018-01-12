@@ -13,14 +13,36 @@
 		background-color: grey;
 			}
 	</style>
-</head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <span class="navbar-brand">
+            (034) - 433 - 2449 | #51 Lizares Avenue, Bacolod City
+            </span>
+            <form class="form-inline">
+              <input class="mr-sm-2" placeholder="Search" type="text">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><span style="color:white;">Search</span></button>
+            </form>
+          </div>
+        </div>
+    </nav>
+
+    <br>
+    <div class="navbar-header text-center">
+        <a class="logo" href="http://su.edu.ph" title="Culture and Arts Council | Silliman University">
+            <img height="75px" src="{% static 'website/images/unor-web-logo.png' %}" alt="Culture and Arts Council | Silliman University"/>
+        </a>
+        <div class="navbar-right callout-text">
+
+        </div>
+    </div>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">RBGS.org</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
+        <a class="navbar-brand" href="/">
+            RBGS
+        </a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
