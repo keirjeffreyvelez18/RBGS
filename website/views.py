@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
+from .models import Program	
 
 def index (request):
 	template = loader.get_template('website/index.html')
@@ -9,6 +10,10 @@ def index (request):
 
 def program(request):
 	template = loader.get_template('website/program.html')
+	return HttpResponse(template.render({}, request))
+
+def list(request):
+	template = loader.get_template('website/list.html')
 	return HttpResponse(template.render({}, request))
 
 def research(request):
@@ -25,8 +30,4 @@ def news(request):
 
 def contactus(request):
 	template = loader.get_template('website/contactus.html')
-	return HttpResponse(template.render({}, request))
-
-def programlist(request):
-	template = loader.get_template('website/programlist.html')
 	return HttpResponse(template.render({}, request))
