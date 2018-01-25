@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Program (models.Model):
-	program_name = models.CharField(null="", max_length=50)
-	program_description = models.CharField(null="", max_length=1000)
+	program_name = models.CharField(null="", max_length=100)
+	program_description = models.CharField(null="", max_length=2000)
 	program_department = models.CharField(null="", max_length=50)
 
 

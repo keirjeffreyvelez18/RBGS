@@ -26,3 +26,7 @@ def news(request):
 def contactus(request):
 	template = loader.get_template('website/contactus.html')
 	return HttpResponse(template.render({}, request))
+
+def programlist(request):
+	template = loader.get_template('website/programlist.html')
+	return HttpResponse(template.render({}, request))

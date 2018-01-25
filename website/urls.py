@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^outreach' , views.outreach, name='outreach'),
     url(r'^news' , views.news, name='news'),
     url(r'^contactus', views.contactus, name='contactus'),
+    url(r'^programlist', views.programlist, name='programlist'),
 ]
