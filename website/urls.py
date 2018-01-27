@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^content_news', views.contactus, name='content_news'),
     url(r'^content_outreach', views.contactus, name='content_outreach'),
     url(r'^content_research', views.contactus, name='content_research'),
+    url(r'^edit/(?P<pk>\d+)$', views.program_item, name='program_item'),
 ]

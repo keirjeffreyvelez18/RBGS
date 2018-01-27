@@ -18,7 +18,7 @@
                   <p class="card-text"> Department: {{program.program_department}} </p>
                 </div>
                 <div class="card-footer">
-                  <a href="list" class="btn btn-primary">Learn More</a>
+                  <a href="{% url 'program_item' program.id %}" class="btn btn-primary">Learn More</a>
                 </div>
               </div>
             </div>

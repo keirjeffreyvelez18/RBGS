@@ -4,6 +4,7 @@ from django.template import loader
 from django.shortcuts import redirect
 from .models import Program
 from django.forms import ModelForm
+from django.shortcuts import render, redirect, get_object_or_404
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -15,6 +16,10 @@ def list(request, template_name='website/list.html'):
 	data = {}
 	data['object_list'] = programs
 	return render(request, template_name, data)
+
+def program_item(request, pk, template_name='website/program_item.html'):
+	program = get_object_or_404(Program, pk=pk)
+	return render(request, template_name, {'object':program})
 
 def index (request):
 	template = loader.get_template('website/index.html')

@@ -1,0 +1,18 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container"><h1 class="mt-4">{{object.program_name}}</h1>
+<p class="lead">
+    Department:
+    <a href="#">{{object.program_department}}</a>
+</p>
+<hr>
+<img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+<hr>
+<p class="lead">
+    {{object.program_description}}
+</p>
+<br><br>
+</div>
+
+{% endblock %}
