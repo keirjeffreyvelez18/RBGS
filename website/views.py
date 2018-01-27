@@ -31,3 +31,15 @@ def news(request):
 def contactus(request):
 	template = loader.get_template('website/contactus.html')
 	return HttpResponse(template.render({}, request))
+
+def content_news(request):
+	template = loader.get_template('website/content_news.html')
+	return HttpResponse(template.render({}, request))
+
+def content_outreach(request):
+	template = loader.get_template('website/content_outreach.html')
+	return HttpResponse(template.render({}, request))
+
+def content_programs(request):
+	template = loader.get_template('website/content_programs.html')
+	return HttpResponse(template.render({}, request))

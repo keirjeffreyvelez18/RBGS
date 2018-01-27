@@ -4,3 +4,4 @@ from . models import BlogPost
 
 admin.site.register(Program)
 admin.site.register(BlogPost)
+

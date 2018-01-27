@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Home | Recoletos de Bacolod Graduate School</title>
+    <title>Recoletos de Bacolod Graduate School - Official Website</title>
     <link  href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/heroic-features.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/carousel.css' %}" rel="stylesheet">
@@ -42,11 +42,8 @@
 
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="/">
-            RBGS
-        </a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav navbar  ml-auto">
             <li class="nav-item active">
@@ -88,6 +85,49 @@
         </div>
       </div>
     </nav>
+    --->
+
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar10">
+            <ul class="navbar-nav nav-fill w-100">
+            <li class="nav-item">
+              <a class="nav-link" href="/"> Home
+                <span class="sr-only"></span>
+              </a>
+             <!--       <div class="dropdown-menu" aria-labelledby="dropdown07">
+                    <a class="dropdown-item" href="program">All Programs</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item">Education</span>
+                    <span class="dropdown-item">Business Management and Administration</span>
+                    <span class="dropdown-item">Public Administration and Governance</span>
+                    <span class="dropdown-item">Development Management</span>
+                    <span class="dropdown-item">Computer Studies</span>
+                    <span class="dropdown-item">Criminal Justice Education</span>
+                    <span class="dropdown-item">Psychology and Guidance and Counseling</span>
+                    <span class="dropdown-item">Nursing</span>
+
+              </div> -->
+
+            <li class="nav-item">
+              <a class="nav-link" href="research">Researches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="outreach">Outreach</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news">News</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 {% block content %}
 
 {% endblock %}

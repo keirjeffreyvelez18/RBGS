@@ -14,7 +14,12 @@ class BlogPost(models.Model):
 	blog_content = models.CharField(null="", max_length=5000)
 	blog_image = models.FileField()
 
-
+class OutreachPost(models.Model):
+	outreach_title = models.CharField(null="", max_length=50)
+	outreach_author = models.CharField(null="", max_length=50)
+	outreach_date = models.DateField()
+	outreach_content = models.CharField(null="", max_length=5000)
+	outreach_image = models.FileField()
 
 
 # to migrate database use the following commands
