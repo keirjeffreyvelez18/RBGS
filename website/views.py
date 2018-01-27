@@ -2,7 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program	
+from .models import Program
+from django.forms import ModelForm
+
+class ProgramForm(ModelForm):
+    class Meta:
+        model = Program
+        fields = ['program_name','program_description','program_department']
+
+def list(request, template_name='website/list.html'):
+	programs = Program.objects.all()
+	data = {}
+	data['object_list'] = programs
+	return render(request, template_name, data)
 
 def index (request):
 	template = loader.get_template('website/index.html')
@@ -10,10 +22,6 @@ def index (request):
 
 def program(request):
 	template = loader.get_template('website/program.html')
-	return HttpResponse(template.render({}, request))
-
-def list(request):
-	template = loader.get_template('website/list.html')
 	return HttpResponse(template.render({}, request))
 
 def research(request):
