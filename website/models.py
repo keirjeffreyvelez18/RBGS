@@ -6,6 +6,9 @@ class Program (models.Model):
 	program_description = models.CharField(null="", max_length=2000)
 	program_department = models.CharField(null="", max_length=50)
 
+	def __str__(self):
+		return self.program_name
+
 
 class BlogPost(models.Model):
 	blog_title = models.CharField(null="", max_length=50)

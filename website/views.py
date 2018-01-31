@@ -17,6 +17,12 @@ def list(request, template_name='website/list.html'):
 	data['object_list'] = programs
 	return render(request, template_name, data)
 
+# def list_filter(request, department, template_name='website/list_template.html'):
+# 	programs = Program.objects.get(program_department=department)
+# 	data = {}
+# 	data['object_list'] = programs
+# 	return render(request, template_name, data)
+
 def program_item(request, pk, template_name='website/program_item.html'):
 	program = get_object_or_404(Program, pk=pk)
 	return render(request, template_name, {'object':program})
