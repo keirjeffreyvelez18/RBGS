@@ -24,6 +24,15 @@ class OutreachPost(models.Model):
 	outreach_content = models.CharField(null="", max_length=5000)
 	outreach_image = models.FileField()
 
+class NewsPost(models.Model):
+	news_title = models.CharField(null="", max_length=1000)
+	news_description = models.CharField(null="",max_length=10000)
+	news_author = models.CharField(null="",max_length=1000)
+	news_image = models.FileField(null=" ")
+
+	def __str__(self):
+		return self.news_title
+
 
 # to migrate database use the following commands
 # python manage.py makemigrations [nameofApp]
