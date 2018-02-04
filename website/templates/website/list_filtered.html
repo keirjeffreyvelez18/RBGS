@@ -1,12 +1,10 @@
 {% extends 'website/base.html' %}
-
 {% load static %}
-
 {% block content %}
 <br>
 <div class="container">
     <div class="alert alert-info" role="alert">
-        <strong>All Programs</strong>
+        <strong>{{ dept }} </strong>
     </div>
     <div class="row text-center">
      {% for program in object_list %}
