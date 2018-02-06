@@ -17,6 +17,16 @@ class BlogPost(models.Model):
 	blog_content = models.CharField(null="", max_length=5000)
 	blog_image = models.FileField()
 
+class FacultyMember(models.Model):
+	faculty_Last_Name = models.CharField(null="", max_length=100)
+	faculty_First_Name = models.CharField(null="", max_length=100)
+	faculty_Middle_Name = models.CharField(null="", max_length=100)
+	First_Semester = models.BooleanField(default=True)
+	Second_Semester = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.faculty_Last_Name+", "+self.faculty_First_Name
+
 class OutreachPost(models.Model):
 	outreach_title = models.CharField(null="", max_length=50)
 	outreach_author = models.CharField(null="", max_length=50)

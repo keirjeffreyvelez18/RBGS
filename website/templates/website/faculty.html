@@ -1,0 +1,13 @@
+{% extends 'website/base.html' %}
+{% block content %}
+<div class="container">
+    <h1>First Semester</h1>
+    {% for FacultyMember in firstsem %}
+    <p>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</p>
+    {% endfor %}
+    <h1>Second Semester</h1>
+    {% for FacultyMember in secondsem %}
+    <p>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</p>
+    {% endfor %}
+</div>
+{% endblock %}

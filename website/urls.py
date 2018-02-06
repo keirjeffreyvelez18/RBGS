@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^program' , views.program, name='program'),
     url(r'^list', views.list, name='list'),
+    url(r'^faculty' , views.faculty, name='faculty'),
     url(r'^research' , views.research, name='research'),
     url(r'^contactus', views.contactus, name='contactus'),
     url(r'^outreach' , views.outreach, name='outreach'),

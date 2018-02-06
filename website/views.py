@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost
+from .models import Program, NewsPost, FacultyMember
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 
@@ -92,6 +92,14 @@ def research(request):
 def outreach(request):
 	template = loader.get_template('website/outreach.html')
 	return HttpResponse(template.render({}, request))
+
+def faculty(request, template_name='website/faculty.html'):
+	firstsem = FacultyMember.objects.filter(First_Semester__exact=True)
+	secondsem = FacultyMember.objects.filter(Second_Semester__exact=True)
+	data = {}
+	data['firstsem'] = firstsem
+	data['secondsem'] = secondsem
+	return render(request, template_name, data )
 
 def news(request, template_name='website/news.html'):
 	news = NewsPost.objects.all()
