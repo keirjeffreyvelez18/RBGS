@@ -17,6 +17,16 @@ class BlogPost(models.Model):
 	blog_content = models.CharField(null="", max_length=5000)
 	blog_image = models.FileField()
 
+class ResearchTitle(models.Model):
+	research_title = models.CharField(null="", max_length=1000)
+	research_description = models.CharField(null="", max_length=10000)
+	research_abstract = models.CharField(null="", max_length=10000)
+	research_author = models.CharField(null="", max_length=1000)
+	research_resources = models.CharField(null="", max_length=10000)
+
+	def __str__(self):
+		return self.research_title+" by "+self.research_author
+
 class FacultyMember(models.Model):
 	faculty_Last_Name = models.CharField(null="", max_length=100)
 	faculty_First_Name = models.CharField(null="", max_length=100)
