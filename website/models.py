@@ -28,7 +28,7 @@ class NewsPost(models.Model):
 	news_title = models.CharField(null="", max_length=1000)
 	news_description = models.CharField(null="",max_length=10000)
 	news_author = models.CharField(null="",max_length=1000)
-	news_image = models.FileField(null=" ")
+	news_image = models.FileField(null="")
 
 	def __str__(self):
 		return self.news_title

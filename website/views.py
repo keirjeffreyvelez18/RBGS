@@ -95,8 +95,7 @@ def outreach(request):
 
 def news(request, template_name='website/news.html'):
 	news = NewsPost.objects.all()
-	data = {}
-	data['object_list'] = news
+	data = {'news' : news}
 	return render(request, template_name, data)
 
 def contactus(request):
