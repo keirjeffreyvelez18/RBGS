@@ -5,17 +5,25 @@ from django.shortcuts import redirect
 from .models import Program, NewsPost, FacultyMember
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.list import ListView
 
 class ProgramForm(ModelForm):
     class Meta:
         model = Program
         fields = ['program_name','program_description','program_department']
 
-def list(request, template_name='website/list.html'):
-	programs = Program.objects.all()
-	data = {}
-	data['object_list'] = programs
-	return render(request, template_name, data)
+def list(request):
+	program_list = Program.objects.all()
+	page = request.GET.get('page', 1)
+	paginator = Paginator(program_list, 8)
+	try:
+		programs = paginator.page(page)
+	except PageNotAnInteger:
+		programs = paginator.page(1)
+	except EmptyPage:
+		programs = paginator.page(paginator.num_pages)
+	return render(request, 'website/list.html', {'programs': programs})
 
 def education(request, template_name='website/list_filtered.html'):
 	programs = Program.objects.filter(program_department__exact="Education")
