@@ -11,7 +11,9 @@
       {% for OutreachPost in outreach %}
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="{{ OutreachPost.outreach_image.url }}" alt="not found" style=""></a>
+            <div class="container" style="overflow:hidden; width: 100%; height: 150px;">
+              <a href="{% url 'outreach_item' OutreachPost.id %}"><img class="card-img-top" src="{{ OutreachPost.outreach_image.url }}" alt="not found" style="object-fit: cover;"></a>
+            </div>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="{% url 'outreach_item' OutreachPost.id %}">{{ OutreachPost.outreach_title }}</a>
