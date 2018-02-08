@@ -1,0 +1,27 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="mt-4">{{object.outreach_title}}</h1>
+            <p class="lead">
+                by
+                <a href="/program">{{ object.outreach_author }}</a>
+            </p>
+            <hr>
+            <p>Posted on {{ object.outreach_date }}</p>
+            <hr>
+            <img class="img-fluid rounded" src="{{ object.outreach_image.url }}" alt="">
+            <hr>
+            <p class="lead">
+                {{ object.outreach_content }}
+            </p>
+            <p> {{ object.outreach_content }} </p>
+            <p> {{ object.outreach_content }} </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

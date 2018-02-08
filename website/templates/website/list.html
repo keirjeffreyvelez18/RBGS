@@ -25,9 +25,9 @@
     {% endfor %}
     </div>
     <div class="row ">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 {% if programs.has_other_pages %}
-                    <ul class="pagination">
+                    <ul class="pagination justify-content-center">
                         {% if programs.has_previous %}
                         <li class="page-item"><a class="page-link" href="?page={{ programs.previous_page_number }}">Previous</a></li>
                         {% else %}
