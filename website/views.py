@@ -41,6 +41,10 @@ def program_item(request, pk, template_name='website/program_item.html'):
 	program = get_object_or_404(Program, pk=pk)
 	return render(request, template_name, {'object': program})
 
+def item_outreach(request, pk, template_name='website/outreach_item.html'):
+	outreach = get_object_or_404(OutreachPost, pk=pk)
+	return render(request, template_name, {'object': outreach })
+
 def education(request, template_name='website/list_filtered.html'):
 	programs = Program.objects.filter(program_department__exact="Education")
 	data = {}

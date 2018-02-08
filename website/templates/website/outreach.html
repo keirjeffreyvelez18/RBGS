@@ -14,7 +14,7 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">{{ OutreachPost.outreach_title }}</a>
+                <a href="{% url 'outreach_item' OutreachPost.id %}">{{ OutreachPost.outreach_title }}</a>
               </h4>
               <p class="card-text">{{ OutreachPost.outreach_date }}</p>
             </div>
