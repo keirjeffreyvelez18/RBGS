@@ -49,6 +49,9 @@ class OutreachPost(models.Model):
 	outreach_content = models.CharField(null="", max_length=5000)
 	outreach_image = models.FileField()
 
+	def __str__(self):
+		return self.outreach_title+" by "+self.outreach_author
+
 class NewsPost(models.Model):
 	news_title = models.CharField(null="", max_length=1000)
 	news_description = models.CharField(null="",max_length=10000)

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost, FacultyMember
+from .models import Program, NewsPost, FacultyMember, OutreachPost
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -24,6 +24,22 @@ def list(request):
 	except EmptyPage:
 		programs = paginator.page(paginator.num_pages)
 	return render(request, 'website/list.html', {'programs': programs})
+
+def outreach(request):
+	outreach_list = OutreachPost.objects.all()
+	page = request.GET.get('page', 1)
+	paginator = Paginator(outreach_list, 6)
+	try:
+		outreach = paginator.page(page)
+	except PageNotAnInteger:
+		outreach = paginator.page(1)
+	except EmptyPage:
+		outreach = paginator.page(paginator.num_pages)
+	return render(request, 'website/outreach.html', {'outreach': outreach})
+
+def program_item(request, pk, template_name='website/program_item.html'):
+	program = get_object_or_404(Program, pk=pk)
+	return render(request, template_name, {'object': program})
 
 def education(request, template_name='website/list_filtered.html'):
 	programs = Program.objects.filter(program_department__exact="Education")
@@ -81,10 +97,6 @@ def nursing(request, template_name='website/list_filtered.html'):
 	data['dept'] = "Nursing"
 	return render(request, template_name, data )
 
-def program_item(request, pk, template_name='website/program_item.html'):
-	program = get_object_or_404(Program, pk=pk)
-	return render(request, template_name, {'object':program})
-
 def index (request):
 	template = loader.get_template('website/index.html')
 	return HttpResponse (template.render({},request))
@@ -95,10 +107,6 @@ def program(request):
 
 def research(request):
 	template = loader.get_template('website/research.html')
-	return HttpResponse(template.render({}, request))
-
-def outreach(request):
-	template = loader.get_template('website/outreach.html')
 	return HttpResponse(template.render({}, request))
 
 def faculty(request, template_name='website/faculty.html'):
