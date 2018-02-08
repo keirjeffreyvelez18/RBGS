@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be73a0dd-ac6d-418f-a80c-942a10e7c038" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/2016_0331_060722_002.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vlcsnap-2018-02-01-23h13m02s112.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vlcsnap-2018-02-02-01h49m32s543.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0005_facultymember.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0006_auto_20180207_0405.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0007_auto_20180207_0407.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0008_researchtitle.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/faculty.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/news.html" afterPath="$PROJECT_DIR$/website/templates/website/news.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/admin.py" afterPath="$PROJECT_DIR$/website/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/models.py" afterPath="$PROJECT_DIR$/website/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/base.html" afterPath="$PROJECT_DIR$/website/templates/website/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/list.html" afterPath="$PROJECT_DIR$/website/templates/website/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/urls.py" afterPath="$PROJECT_DIR$/website/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/views.py" afterPath="$PROJECT_DIR$/website/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,13 +64,13 @@
         <entry file="file://$PROJECT_DIR$/website/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1547">
-              <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+              <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding>
-                <marker date="1518103456256" expanded="true" signature="3701:3801" ph="..." />
-                <marker date="1518103456256" expanded="true" signature="3826:3935" ph="..." />
-                <marker date="1518103456256" expanded="true" signature="3963:4075" ph="..." />
-                <marker date="1518103456256" expanded="true" signature="4107:4223" ph="..." />
-                <marker date="1518103456256" expanded="true" signature="4255:4371" ph="..." />
+                <marker date="1518103560827" expanded="true" signature="4344:4444" ph="..." />
+                <marker date="1518103560827" expanded="true" signature="4469:4578" ph="..." />
+                <marker date="1518103560827" expanded="true" signature="4606:4718" ph="..." />
+                <marker date="1518103560827" expanded="true" signature="4750:4866" ph="..." />
+                <marker date="1518103560827" expanded="true" signature="4898:5014" ph="..." />
               </folding>
             </state>
           </provider>
@@ -576,13 +590,13 @@
     <entry file="file://$PROJECT_DIR$/website/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1547">
-          <caret line="97" column="26" lean-forward="false" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+          <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
           <folding>
-            <marker date="1518103456256" expanded="true" signature="3701:3801" ph="..." />
-            <marker date="1518103456256" expanded="true" signature="3826:3935" ph="..." />
-            <marker date="1518103456256" expanded="true" signature="3963:4075" ph="..." />
-            <marker date="1518103456256" expanded="true" signature="4107:4223" ph="..." />
-            <marker date="1518103456256" expanded="true" signature="4255:4371" ph="..." />
+            <marker date="1518103560827" expanded="true" signature="4344:4444" ph="..." />
+            <marker date="1518103560827" expanded="true" signature="4469:4578" ph="..." />
+            <marker date="1518103560827" expanded="true" signature="4606:4718" ph="..." />
+            <marker date="1518103560827" expanded="true" signature="4750:4866" ph="..." />
+            <marker date="1518103560827" expanded="true" signature="4898:5014" ph="..." />
           </folding>
         </state>
       </provider>

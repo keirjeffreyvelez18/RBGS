@@ -9,7 +9,7 @@
         <strong>All Programs</strong>
     </div>
     <div class="row text-center">
-     {% for program in object_list %}
+     {% for program in programs %}
         <div class="col-lg-3 col-md-6 mb-4">
               <div class="card">
                 <div class="card-body">
@@ -23,6 +23,31 @@
               </div>
             </div>
     {% endfor %}
+    </div>
+    <div class="row ">
+            <div class="col-md-6">
+                {% if programs.has_other_pages %}
+                    <ul class="pagination">
+                        {% if programs.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ programs.previous_page_number }}">Previous</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                    {% endif %}
+                    {% for i in programs.paginator.page_range %}
+                        {% if programs.number == i %}
+                            <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if programs.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ programs.next_page_number }}">Next</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link" >Next</span></li>
+                    {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
     </div>
 </div>
 {% endblock %}
