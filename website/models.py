@@ -9,6 +9,11 @@ class Program (models.Model):
 	def __str__(self):
 		return self.program_name
 
+class UpdatePost(models.Model):
+	update_title = models.CharField(null="", max_length=1000)
+
+	def __str__(self):
+		return self.update_title
 
 class BlogPost(models.Model):
 	blog_title = models.CharField(null="", max_length=50)

@@ -6,11 +6,11 @@
         <div class="card-content">
             <div class="card-header"><h1>First Semester</h1></div>
             <div class="card-body">
-                <ul>
+                <ol>
                     {% for FacultyMember in firstsem %}
                     <li>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</li>
                     {% endfor %}
-                </ul>
+                </ol>
             </div>
         </div>
     </div>
@@ -19,11 +19,11 @@
         <div class="card-content">
             <div class="card-header"><h1>Second Semester</h1></div>
             <div class="card-body">
-                <ul>
+                <ol>
                     {% for FacultyMember in secondsem %}
                     <li>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</li>
                     {% endfor %}
-                </ul>
+                </ol>
             </div>
         </div>
     </div>
