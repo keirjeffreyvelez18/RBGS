@@ -3,33 +3,81 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Recoletos de Bacolod Graduate School - Official Website</title>
     <link  href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/heroic-features.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/carousel.css' %}" rel="stylesheet">
     <style>
+        body{
+            padding:0;
+        }
 		#map {
 		width: 100%;
 		height: 400px;
 		background-color: grey;
-			}
+        }
+        .navbar-nav > li > a {padding-top:0px !important; padding-bottom:0px !important;}
+        .navbar {min-height:32px !important}
+        .navbar-nav {
+        width: 100%;
+        text-align: center;}
+        > li {
+            float: none;
+            display: inline-block;
+            }
+
 	</style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-dark" style="background-color: #004a95">
+        <div class="container">
+            <span class="navbar-brand" style=" font-size: medium;">
+                (034) - 433 - 2449 | #51 Lizares Avenue, Bacolod City
+            </span>
+            <form class="form-inline">
+              <input class="mr-sm-2" placeholder="Search" type="text">
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><span style="color:white;">Search</span></button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    <div class="navbar-header text-center">
+        <a class="logo" href="/" title="Recoletos de Bacolod Graduate School | University of Negros Occidental - Recoletos">
+            <img height="150px" src="{% static 'website/images/logo.png' %}" alt="Recoletos de Bacolod Graduate School | University of Negros Occidental - Recoletos"/>
+        </a>
+        <div class="navbar-right callout-text">
+
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="#">RBGS.org</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav navbar  ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/index"> Home
+              <a class="nav-link" href="/"> Home
                 <span class="sr-only"></span>
               </a>
             </li>
+            <li class="nav-item dropdown menu-large">
+              <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programs</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown07">
+                    <a class="dropdown-item" href="/list">All Programs</a>
+                    <a class="dropdown-item" href="/program">Program Departments</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/education">Education</a>
+                    <a class="dropdown-item" href="/business">Business Management and Administration</a>
+                    <a class="dropdown-item" href="/administration">Public Administration and Governance</a>
+                    <a class="dropdown-item" href="/management">Development Management</a>
+                    <a class="dropdown-item" href="/computer_studies">Computer Studies</a>
+                    <a class="dropdown-item" href="/criminal_justice">Criminal Justice Education</a>
+                    <a class="dropdown-item" href="/psychology">Psychology and Guidance and Counseling</a>
+                    <a class="dropdown-item" href="/nursing">Nursing</a>
+
+              </div>
+            </li>
             <li class="nav-item">
-              <a class="nav-link" href="program">Programs</a>
+              <a class="nav-link" href="faculty">Faculty</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="research">Researches</a>
@@ -47,12 +95,25 @@
         </div>
       </div>
     </nav>
-
-
-
-
 {% block content %}
+
 {% endblock %}
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <!--<script>-->
+      <!--Holder.addTheme('thumb', {-->
+        <!--bg: '#55595c',-->
+        <!--fg: '#eceeef',-->
+        <!--text: 'Thumbnail'-->
+      <!--});-->
+    <!--</script>-->
 
 </body>
 
