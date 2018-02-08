@@ -24,28 +24,31 @@
             </div>
     {% endfor %}
     </div>
+
     <div class="row">
-        <div class="col-md-12 text-center">
-            {% if programs.has_other_pages %}
-                <ul class="pagination">
-                    {% if programs.has_previous %}
-                    <li><a href="?page={{ programs.previous_page_number }}"></a></li>
-                    {% else %}
-                    <li class="disabled"><span>&laquo;</span></li>
-                {% endif %}
-                {% for i in programs.paginator.page_range %}
-                    {% if programs.number == i %}
-                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                    {% else %}
-                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+            <div class="col-md-12 text-center">
+                {% if programs.has_other_pages %}
+                    <ul class="pagination">
+                        {% if programs.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ programs.previous_page_number }}">Previous</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
                     {% endif %}
-                {% endfor %}
-                {% if programs.has_next %}
-                    <li class="disabled"><span>&raquo;</span></li>
+                    {% for i in programs.paginator.page_range %}
+                        {% if programs.number == i %}
+                            <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if programs.has_next %}
+                        <li class="page-item"><a class="page-link" href="?page={{ programs.next_page_number }}">Next</a></li>
+                        {% else %}
+                        <li class="page-item disabled"><span class="page-link" >Next</span></li>
+                    {% endif %}
+                    </ul>
                 {% endif %}
-                </ul>
-            {% endif %}
-        </div>
+            </div>
     </div>
 </div>
 {% endblock %}
