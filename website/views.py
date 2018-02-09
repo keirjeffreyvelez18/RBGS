@@ -26,7 +26,7 @@ def list(request):
 	return render(request, 'website/list.html', {'programs': programs})
 
 def outreach(request):
-	outreach_list = OutreachPost.objects.all()
+	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(outreach_list, 6)
 	try:

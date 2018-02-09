@@ -20,12 +20,12 @@
               {{NewsPost.news_title}}
             </div>
             <div class="card-body">
-                <img src="{{ NewsPost.news_image.url }}" alt="" class="col-sm-12">
+                    <img src="{{ NewsPost.news_image.url }}" alt="" class="col-sm-12">
                 <p class="card-title" style="height:125px;">
                     {{ NewsPost.news_description }}
                 </p>
                 <hr>
-              <p class="card-text"> Source: <a href="#">{{NewsPost.news_author}}</a></p>
+              <p class="card-text"> Source: <a href="#">{{NewsPost.news_author}} | {{NewsPost.news_date}}</a></p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-primary">Learn More</a>
@@ -37,23 +37,27 @@
     </div>
 
     <div class="col-md-4">
-          <div class="card h-25">
-            <div class="card-header">
-              Search
+            <!-- It can be fixed with bootstrap affix http://getbootstrap.com/javascript/#affix-->
+            <div id="sidebar" class="card bg-faded sidebar-nav">
+                <h5><i class="glyphicon glyphicon-home"></i>
+                    <small><b>MANAGEMENT</b></small>
+                </h5>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Add</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+                <h5><i class="glyphicon glyphicon-user"></i>
+                    <small><b>USERS</b></small>
+                </h5>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="#">List</a></li>
+                    <li><a href="#">Manage</a></li>
+                </ul>
             </div>
-            <div class="card-body">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
-              </div>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-    </div>
+        </div>
+
+
   </div>
   <br>
 </div>

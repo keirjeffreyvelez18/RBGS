@@ -9,16 +9,22 @@
       </h1>
       <div class="row">
       {% for OutreachPost in outreach %}
-        <div class="col-lg-4 col-sm-6 portfolio-item">
-          <div class="card h-100">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
             <div class="container" style="overflow:hidden; width: 100%; height: 150px;">
-              <a href="{% url 'outreach_item' OutreachPost.id %}"><img class="card-img-top" src="{{ OutreachPost.outreach_image.url }}" alt="not found" style="object-fit: cover;"></a>
+              <a href="{% url 'outreach_item' OutreachPost.id %}">
+                <img class="card-img-top" src="{{ OutreachPost.outreach_image.url }}" alt="not found" style="object-fit: cover;">
+              </a>
             </div>
             <div class="card-body">
-              <h4 class="card-title">
-                <a href="{% url 'outreach_item' OutreachPost.id %}">{{ OutreachPost.outreach_title }}</a>
-              </h4>
+              <a href="{% url 'outreach_item' OutreachPost.id %}">
+                <p class="card-title"><strong>{{ OutreachPost.outreach_title }}</strong></p>
+              </a>
+                <hr>
               <p class="card-text">{{ OutreachPost.outreach_date }}</p>
+            </div>
+            <div class="card-footer">
+              <a href="{% url 'outreach_item' OutreachPost.id %}" class="btn btn-primary">Learn More</a>
             </div>
           </div>
         </div>
