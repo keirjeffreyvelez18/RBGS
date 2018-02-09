@@ -45,9 +45,12 @@ class FacultyMember(models.Model):
 class OutreachPost(models.Model):
 	outreach_title = models.CharField(null="", max_length=50)
 	outreach_author = models.CharField(null="", max_length=50)
-	outreach_date = models.DateField()
+	outreach_date = models.DateField(null="", auto_now_add=True)
 	outreach_content = models.CharField(null="", max_length=5000)
 	outreach_image = models.FileField()
+
+	class Meta:
+		get_latest_by = 'outreach_date'
 
 	def __str__(self):
 		return self.outreach_title+" by "+self.outreach_author
@@ -57,9 +60,10 @@ class NewsPost(models.Model):
 	news_description = models.CharField(null="",max_length=10000)
 	news_author = models.CharField(null="",max_length=1000)
 	news_image = models.FileField(null="")
+	news_date = models.DateField(null="", auto_now_add=True)
 
 	def __str__(self):
-		return self.news_title
+		return  self.news_title
 
 
 # to migrate database use the following commands
