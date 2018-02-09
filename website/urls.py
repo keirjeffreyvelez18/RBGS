@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^outreach', views.outreach, name='outreach'),
     url(r'^view/(?P<pk>\d+)$', views.item_outreach, name='outreach_item'),
     url(r'^news', views.news, name='news'),
+    url(r'^view/(?P<pk>\d+)$', views.news_item, name='news_item'),
     url(r'^education', views.education, name='education'),
     url(r'^business', views.business, name='business'),
     url(r'^administration', views.administration, name='administration'),
