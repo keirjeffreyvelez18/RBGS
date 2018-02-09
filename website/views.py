@@ -43,7 +43,7 @@ def program_item(request, pk, template_name='website/program_item.html'):
 
 def news_item(request, pk, template_name='website/news_item.html'):
 	news = get_object_or_404(NewsPost, pk=pk)
-	return render(request, template_name, {'object': NewsPost})
+	return render(request, template_name, {'object': news})
 
 def item_outreach(request, pk, template_name='website/outreach_item.html'):
 	outreach = get_object_or_404(OutreachPost, pk=pk)

@@ -2,6 +2,22 @@
 {% load static %}
 {% block content %}
 <div class="container">
-    <p>item works!</p>
+    <br>
+    <div class="card">
+        <img class="img-fluid rounded card-img-top" src="http://placehold.it/900x300" alt="">
+        <div class="card-body">
+            <h1 class="card-title">{{object.news_title}}</h1>
+            <p class="lead">
+                Department:
+                <a href="/program">{{object.program_department}}</a>
+            </p>
+            <hr>
+            <hr>
+            <p class="lead">
+                {{object.program_description}}
+            </p>
+        </div>
+    </div>
+    <br>
 </div>
 {% endblock %}
