@@ -25,6 +25,19 @@ def list(request):
 		programs = paginator.page(paginator.num_pages)
 	return render(request, 'website/list.html', {'programs': programs})
 
+def news(request, template_name='website/news.html'):
+	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	page = request.GET.get('page', 1)
+	paginator = Paginator(news_list, 3)
+
+	try:
+		news = paginator.page(page)
+	except PageNotAnInteger:
+		news = paginator.page(1)
+	except EmptyPage:
+		news = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'news' : news})
+
 def outreach(request):
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
 	page = request.GET.get('page', 1)
@@ -124,11 +137,6 @@ def faculty(request, template_name='website/faculty.html'):
 	data['firstsem'] = firstsem
 	data['secondsem'] = secondsem
 	return render(request, template_name, data )
-
-def news(request, template_name='website/news.html'):
-	news = NewsPost.objects.all().order_by('-news_date','-news_time')
-	data = {'news' : news}
-	return render(request, template_name, data)
 
 def contactus(request):
 	template = loader.get_template('website/contactus.html')
