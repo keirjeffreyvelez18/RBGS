@@ -62,6 +62,7 @@ class NewsPost(models.Model):
 	news_author = models.CharField(null="",max_length=1000, help_text="Author of the article")
 	news_image = models.FileField(null="", help_text="Headline Image of the article")
 	news_date = models.DateField(null="", auto_now_add=True)
+	news_time = models.TimeField(null="", auto_now_add=True)
 
 	def __str__(self):
 		return  self.news_title
