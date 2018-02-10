@@ -15,13 +15,6 @@ class UpdatePost(models.Model):
 	def __str__(self):
 		return self.update_title
 
-class BlogPost(models.Model):
-	blog_title = models.CharField(null="", max_length=50)
-	blog_author = models.CharField(null="", max_length=50)
-	blog_date = models.DateField()
-	blog_content = models.CharField(null="", max_length=5000)
-	blog_image = models.FileField()
-
 class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)
 	research_description = models.CharField(null="", max_length=10000)
