@@ -126,7 +126,7 @@ def faculty(request, template_name='website/faculty.html'):
 	return render(request, template_name, data )
 
 def news(request, template_name='website/news.html'):
-	news = NewsPost.objects.all()
+	news = NewsPost.objects.all().order_by('-news_date','-news_time')
 	data = {'news' : news}
 	return render(request, template_name, data)
 
