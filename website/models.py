@@ -56,11 +56,13 @@ class OutreachPost(models.Model):
 		return self.outreach_title+" by "+self.outreach_author
 
 class NewsPost(models.Model):
-	news_title = models.CharField(null="", max_length=1000)
-	news_description = models.CharField(null="",max_length=10000)
-	news_author = models.CharField(null="",max_length=1000)
-	news_image = models.FileField(null="")
+	news_title = models.CharField(null="", max_length=1000, help_text="Headline")
+	news_shortdesc = models.CharField(null="", max_length=10000, help_text="Short Description for Preview text.")
+	news_description = models.CharField(null="",max_length=10000, help_text="Full content")
+	news_author = models.CharField(null="",max_length=1000, help_text="Author of the article")
+	news_image = models.FileField(null="", help_text="Headline Image of the article")
 	news_date = models.DateField(null="", auto_now_add=True)
+	news_time = models.TimeField(null="", auto_now_add=True)
 
 	def __str__(self):
 		return  self.news_title
