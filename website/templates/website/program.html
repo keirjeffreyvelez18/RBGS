@@ -1,13 +1,17 @@
 {% extends 'website/base.html' %}
 
 {% load static %}
+<div class="container">
+{% block breadcrumb %}
+<ol class="breadcrumb my-4">
+  <li class="breadcrumb-item active">Program Departments</li>
+</ol>
+{% endblock %}
+</div>
 
 {% block content %}
     <br>
     <div class="container">
-        <div class="alert alert-info" role="alert">
-          <strong>Heads up!</strong> Not all courses may be available, please contact us for inquiries.
-        </div>
         <div class="row text-center">
             <div class="col-lg-3 col-md-6 mb-4">
               <div class="card">

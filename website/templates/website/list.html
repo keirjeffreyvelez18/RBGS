@@ -1,13 +1,16 @@
 {% extends 'website/base.html' %}
 
-{% load static %}
 
+
+{% load static %}
+{% block breadcrumb %}
+<ol class="breadcrumb my-4">
+  <li class="breadcrumb-item">All Programs</li>
+</ol>
+{% endblock %}
 {% block content %}
 <br>
 <div class="container">
-    <div class="alert alert-info" role="alert">
-        <strong>All Programs</strong>
-    </div>
     <div class="row text-center">
      {% for program in programs %}
         <div class="col-lg-3 col-md-6 mb-4">
