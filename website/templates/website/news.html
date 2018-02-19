@@ -1,6 +1,11 @@
 {% extends 'website/base.html' %}
 
 {% load static %}
+{% block breadcrumb %}
+<ol class="breadcrumb my-4">
+    <li class="breadcrumb-item active">News</li>
+</ol>
+{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -19,7 +24,7 @@
             <img src="{{ NewsPost.news_image.url }}" alt="" class="card-img-top">
             <div class="card-block card-body">
               <h4 class="card-title">
-                {{NewsPost.news_title}}
+                <a href="{% url 'news_item' NewsPost.id %}">{{NewsPost.news_title}}</a>
               </h4>
                 <p class="card-text">
                     {{ NewsPost.news_shortdesc }}
@@ -30,9 +35,9 @@
                   </small>
               </p>
             </div>
-            <div class="card-footer">
-              <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary">Read More</a>
-            </div>
+            <!--<div class="card-footer">-->
+              <!--<a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary">Read More</a>-->
+            <!--</div>-->
           </div>
         </div>
         <br>

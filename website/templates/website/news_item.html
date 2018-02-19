@@ -1,5 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block breadcrumb %}
+<ol class="breadcrumb my-4">
+    <li class="breadcrumb-item active"><a href="/news">News</a></li>
+    <li class="breadcrumb-item active">{{object.news_title}}</li>
+</ol>
+{% endblock %}
 {% block content %}
 <div class="container">
     <br>
