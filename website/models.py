@@ -9,11 +9,14 @@ class Program (models.Model):
 	def __str__(self):
 		return self.program_name
 
-class UpdatePost(models.Model):
-	update_title = models.CharField(null="", max_length=1000)
+class UpcomingEvent(models.Model):
+	event_name = models.CharField(null="",max_length=1000)
+	event_details = models.CharField(null="",max_length=10000)
+	event_date = models.DateTimeField(null="")
+	event_datecreated = models.DateTimeField(null="",auto_now_add=True)
 
 	def __str__(self):
-		return self.update_title
+		return self.event_name
 
 class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)

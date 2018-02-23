@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost, FacultyMember, OutreachPost
+from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -37,6 +37,19 @@ def news(request, template_name='website/news.html'):
 	except EmptyPage:
 		news = paginator.page(paginator.num_pages)
 	return render(request, template_name, {'news' : news})
+
+def upcomingevents(request, template_name='website/upcomingevents.html'):
+	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	page = request.GET.get('page', 1)
+	paginator = Paginator(events_list, 3)
+
+	try:
+		events = paginator.page(page)
+	except PageNotAnInteger:
+		events = paginator.page(1)
+	except EmptyPage:
+		events = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'events' : events})
 
 def outreach(request):
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
