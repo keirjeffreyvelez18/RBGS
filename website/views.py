@@ -7,6 +7,8 @@ from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
+import time
+import calendar
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -29,6 +31,7 @@ def news(request, template_name='website/news.html'):
 	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(news_list, 3)
+	months = mkmonth_lst()
 
 	try:
 		news = paginator.page(page)
@@ -36,7 +39,7 @@ def news(request, template_name='website/news.html'):
 		news = paginator.page(1)
 	except EmptyPage:
 		news = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'news' : news})
+	return render(request, template_name, {'news' : news,"months":months})
 
 def upcomingevents(request, template_name='website/upcomingevents.html'):
 	events_list = UpcomingEvent.objects.all().order_by('event_date')
@@ -155,14 +158,22 @@ def contactus(request):
 	template = loader.get_template('website/contactus.html')
 	return HttpResponse(template.render({}, request))
 
-def content_news(request):
-	template = loader.get_template('website/content_news.html')
-	return HttpResponse(template.render({}, request))
+def mkmonth_lst():
+	if not NewsPost.objects.count(): return []
 
-def content_outreach(request):
-	template = loader.get_template('website/content_outreach.html')
-	return HttpResponse(template.render({}, request))
+	# set up vars
+	year, month = time.localtime()[:2]
+	first = NewsPost.objects.order_by("news_date")[0]
+	fyear = first.news_date.year
+	fmonth = first.news_date.month
+	months = []
 
-def content_programs(request):
-	template = loader.get_template('website/content_programs.html')
-	return HttpResponse(template.render({}, request))
+	# loop over years and months
+	for y in range(year, fyear-1, -1):
+		start, end = 12, 0
+		if y == year: start = month
+		if y == fyear: end = fmonth-1
+
+		for m in range(start, end, -1):
+			months.append((y, m, calendar.month_name[m]))
+	return months

@@ -63,14 +63,14 @@
 </nav>
 {% endblock %}
 
-<div class="container">
 {% block breadcrumb %}
-<ol class="breadcrumb my-4">
-  <li class="breadcrumb-item"><a href="list">All Programs</a></li>
-  <li class="breadcrumb-item active">{{dept}}</li>
-</ol>
-{% endblock %}
+<div class="container mt-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="list">All Programs</a></li>
+      <li class="breadcrumb-item active">{{dept}}</li>
+    </ol>
 </div>
+{% endblock %}
 {% block content %}
 <div class="container">
     <div class="row text-center">

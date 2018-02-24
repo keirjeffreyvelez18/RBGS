@@ -64,11 +64,13 @@
 {% endblock %}
 
 {% block breadcrumb %}
-<ol class="breadcrumb my-4">
-    <li class="breadcrumb-item"><a href="/list">All Programs</a></li>
-    <li class="breadcrumb-item"><a href="/education">{{object.program_department}}</a></li>
-    <li class="breadcrumb-item active">{{object.program_name}}</li>
-</ol>
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/list">All Programs</a></li>
+        <li class="breadcrumb-item"><a href="/education">{{object.program_department}}</a></li>
+        <li class="breadcrumb-item active">{{object.program_name}}</li>
+    </ol>
+</div>
 {% endblock %}
 
 {% block content %}

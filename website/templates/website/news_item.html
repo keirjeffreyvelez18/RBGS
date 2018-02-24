@@ -62,28 +62,45 @@
     </div>
 </nav>
 {% endblock %}
+
 {% block breadcrumb %}
-<ol class="breadcrumb my-4">
-    <li class="breadcrumb-item active"><a href="/news">News</a></li>
-    <li class="breadcrumb-item active">{{object.news_title}}</li>
-</ol>
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/news">News</a></li>
+        <li class="breadcrumb-item active">{{object.news_title}}</li>
+    </ol>
+</div>
 {% endblock %}
 {% block content %}
 <div class="container">
-    <div class="card">
-        <img class="img-fluid rounded card-img-top" src="{{ object.news_image.url }}" alt="">
-        <div class="card-body">
-            <h1 class="card-title">{{object.news_title}}</h1>
-            <p class="lead"><i class="fas fa-user"></i> by {{ object.news_author }}</p>
-            <hr>
-            <p><i class="fas fa-calendar"> Posted on {{ object.news_date }} at {{ object.news_time }}</i></p>
-            <hr>
-            <p class="lead">
-                {{object.news_shortdesc}}
-            </p>
-            <p>{{object.news_description}}</p>
+
+    <!--Card-->
+    <div class="card card-cascade wider reverse my-4">
+
+        <!--Card image-->
+        <div class="view overlay">
+            <img src="{{ object.news_image.url }}" class="card-img-top img-fluid">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
         </div>
+        <!--/Card image-->
+
+        <!--Card content-->
+        <div class="card-body text-center">
+            <!--Title-->
+            <h3 class="card-title indigo-text"><strong>{{object.news_title}}</strong></h3>
+
+            <p class="card-text">
+                {{object.news_description}}
+            </p>
+
+            <small> Posted by <span class="indigo-text"><strong>{{object.news_author}}</strong></span> on {{ object.news_date }} at {{ object.news_time }}</small>
+        </div>
+        <!--/.Card content-->
+
     </div>
-    <br>
+    <!--/.Card-->
+
 </div>
 {% endblock %}
