@@ -71,36 +71,23 @@
     </ol>
 </div>
 {% endblock %}
+
 {% block content %}
 <div class="container">
-
-    <!--Card-->
     <div class="card card-cascade wider reverse my-4">
-
-        <!--Card image-->
         <div class="view overlay">
             <img src="{{ object.news_image.url }}" class="card-img-top img-fluid">
             <a href="#!">
                 <div class="mask rgba-white-slight"></div>
             </a>
         </div>
-        <!--/Card image-->
-
-        <!--Card content-->
         <div class="card-body text-center">
-            <!--Title-->
             <h3 class="card-title indigo-text"><strong>{{object.news_title}}</strong></h3>
-
             <p class="card-text">
                 {{object.news_description}}
             </p>
-
             <small> Posted by <span class="indigo-text"><strong>{{object.news_author}}</strong></span> on {{ object.news_date }} at {{ object.news_time }}</small>
         </div>
-        <!--/.Card content-->
-
     </div>
-    <!--/.Card-->
-
 </div>
 {% endblock %}
