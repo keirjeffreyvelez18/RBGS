@@ -12,7 +12,8 @@ class Program (models.Model):
 class UpcomingEvent(models.Model):
 	event_name = models.CharField(null="",max_length=1000)
 	event_details = models.CharField(null="",max_length=10000)
-	event_date = models.DateTimeField(null="")
+	event_date = models.DateField(null="")
+	event_time = models.TimeField(null="")
 	event_datecreated = models.DateTimeField(null="",auto_now_add=True)
 
 	def __str__(self):
