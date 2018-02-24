@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import time
 
 class Program (models.Model):
 	program_name = models.CharField(null="", max_length=100)
@@ -13,7 +13,7 @@ class UpcomingEvent(models.Model):
 	event_name = models.CharField(null="",max_length=1000)
 	event_details = models.CharField(null="",max_length=10000)
 	event_date = models.DateField(null="")
-	event_time = models.TimeField(null="")
+	event_time = models.TimeField(null="", help_text="Format: HH:MM:SS, 24H. e.g 15:30:00 is 3:30PM")
 	event_datecreated = models.DateTimeField(null="",auto_now_add=True)
 
 	def __str__(self):
