@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^outreach', views.outreach, name='outreach'),
     url(r'^Outreaches/(?P<pk>\d+)$', views.item_outreach, name='outreach_item'),
     url(r'^news', views.news, name='news'),
+    url(r'^upcomingevents', views.upcomingevents, name='upcomingevents'),
     url(r'^News/(?P<pk>\d+)$', views.news_item, name='news_item'),
     url(r'^education', views.education, name='education'),
     url(r'^business', views.business, name='business'),
@@ -20,8 +21,5 @@ urlpatterns = [
     url(r'^criminal_justice', views.criminal_justice, name='criminal_justice'),
     url(r'^psychology', views.psychology, name='psychology'),
     url(r'^nursing', views.nursing, name='nursing'),
-    url(r'^content_news', views.contactus, name='content_news'),
-    url(r'^content_outreach', views.contactus, name='content_outreach'),
-    url(r'^content_research', views.contactus, name='content_research'),
     url(r'^Programs/(?P<pk>\d+)$', views.program_item, name='program_item'),
 ]

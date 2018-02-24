@@ -7,6 +7,8 @@
     <link  href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/heroic-features.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/mdb.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/mdb.min.css' %}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <style>
         body{
@@ -33,12 +35,13 @@
 <body>
     <nav class="navbar navbar-dark" style="background-color: #004a95">
         <div class="container">
-            <span class="navbar-brand" style=" font-size: medium;">
+            <span class="navbar-brand" style=" font-size: small;">
                 (034) - 433 - 2449 | #51 Lizares Avenue, Bacolod City
             </span>
             <form class="form-inline">
-              <input class="mr-sm-2" placeholder="Search" type="text">
-                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit"><span style="color:white;">Search</span></button>
+                <div class="md-form mt-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                </div>
             </form>
           </div>
         </div>
@@ -51,51 +54,12 @@
 
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav navbar  ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/"> Home
-                <span class="sr-only"></span>
-              </a>
-            </li>
-            <li class="nav-item dropdown menu-large">
-              <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programs</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown07">
-                    <a class="dropdown-item" href="/list">All Programs</a>
-                    <a class="dropdown-item" href="/program">Program Departments</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/education">Education</a>
-                    <a class="dropdown-item" href="/business">Business Management and Administration</a>
-                    <a class="dropdown-item" href="/administration">Public Administration and Governance</a>
-                    <a class="dropdown-item" href="/management">Development Management</a>
-                    <a class="dropdown-item" href="/computer_studies">Computer Studies</a>
-                    <a class="dropdown-item" href="/criminal_justice">Criminal Justice Education</a>
-                    <a class="dropdown-item" href="/psychology">Psychology and Guidance and Counseling</a>
-                    <a class="dropdown-item" href="/nursing">Nursing</a>
-
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/faculty">Faculty</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/research">Researches</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/outreach">Outreach</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contactus">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/news">News</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    {% block navbar %}
+    {% endblock%}
+    <div class="container mt-2">
+                    {% block breadcrumb %}
+                    {% endblock %}
+    </div>
 {% block content %}
 
 {% endblock %}
@@ -103,11 +67,8 @@
 <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <!--<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>-->
     <!--<script>-->
       <!--Holder.addTheme('thumb', {-->
         <!--bg: '#55595c',-->
@@ -115,7 +76,11 @@
         <!--text: 'Thumbnail'-->
       <!--});-->
     <!--</script>-->
-
+    <script src="{% static 'website/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'website/js/bootstrap.js' %}"></script>
+    <script src="{% static 'website/js/popper.min.js' %}"></script>
+    <script src="{% static 'website/js/popper.js' %}"></script>
 </body>
 
 <footer class="py-5 bg-dark">
@@ -124,7 +89,6 @@
       </div>
 </footer>
 
-    <script src="{% static 'website/js/jquery.min.js' %}"></script>
-    <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
+
 
 </html>

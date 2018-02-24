@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import time
 
 class Program (models.Model):
 	program_name = models.CharField(null="", max_length=100)
@@ -9,18 +9,15 @@ class Program (models.Model):
 	def __str__(self):
 		return self.program_name
 
-class UpdatePost(models.Model):
-	update_title = models.CharField(null="", max_length=1000)
+class UpcomingEvent(models.Model):
+	event_name = models.CharField(null="",max_length=1000)
+	event_details = models.CharField(null="",max_length=10000)
+	event_date = models.DateField(null="")
+	event_time = models.TimeField(null="", help_text="Format: HH:MM:SS, 24H. e.g 15:30:00 is 3:30PM")
+	event_datecreated = models.DateTimeField(null="",auto_now_add=True)
 
 	def __str__(self):
-		return self.update_title
-
-class BlogPost(models.Model):
-	blog_title = models.CharField(null="", max_length=50)
-	blog_author = models.CharField(null="", max_length=50)
-	blog_date = models.DateField()
-	blog_content = models.CharField(null="", max_length=5000)
-	blog_image = models.FileField()
+		return self.event_name
 
 class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)
