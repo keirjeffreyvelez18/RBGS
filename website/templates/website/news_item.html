@@ -73,20 +73,32 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="card card-cascade wider reverse my-4">
-        <div class="view overlay">
-            <img src="{{ object.news_image.url }}" class="card-img-top img-fluid">
-            <a href="#!">
-                <div class="mask rgba-white-slight"></div>
-            </a>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-cascade wider reverse">
+                <div class="view overlay">
+                    <img src="{{ object.news_image.url }}" class="card-img-top img-fluid">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title indigo-text"><strong>{{object.news_title}}</strong></h3>
+                    <p class="card-text">
+                        {{object.news_description}}
+                    </p>
+                    <small> Posted by <span class="indigo-text"><strong>{{object.news_author}}</strong></span> on {{ object.news_date }} at {{ object.news_time }}</small>
+                </div>
+            </div>
         </div>
-        <div class="card-body text-center">
-            <h3 class="card-title indigo-text"><strong>{{object.news_title}}</strong></h3>
-            <p class="card-text">
-                {{object.news_description}}
-            </p>
-            <small> Posted by <span class="indigo-text"><strong>{{object.news_author}}</strong></span> on {{ object.news_date }} at {{ object.news_time }}</small>
+        <div class="col-lg-4">
+            <ul class="list-group">
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+            </ul>
         </div>
     </div>
 </div>

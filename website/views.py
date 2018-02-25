@@ -134,9 +134,11 @@ def nursing(request, template_name='website/list_filtered.html'):
 	data['dept'] = "Nursing"
 	return render(request, template_name, data )
 
-def index (request):
-	template = loader.get_template('website/index.html')
-	return HttpResponse (template.render({},request))
+def index (request, template_name='website/index.html'):
+	news = NewsPost.objects.order_by('-news_date','-news_time')[0]
+	events = UpcomingEvent.objects.order_by('event_date','event_time')[0]
+	outreach = OutreachPost.objects.order_by('-outreach_date')[0]
+	return render(request, template_name, {'news':news,'events':events,'outreach':outreach})
 
 def program(request):
 	template = loader.get_template('website/program.html')
