@@ -66,14 +66,11 @@
 
 {% block content %}
 <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-    <!--Indicators-->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-2" data-slide-to="1"></li>
         <li data-target="#carousel-example-2" data-slide-to="2"></li>
     </ol>
-    <!--/.Indicators-->
-    <!--Slides-->
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
             <div class="view">
@@ -86,7 +83,6 @@
             </div>
         </div>
         <div class="carousel-item">
-            <!--Mask color-->
             <div class="view">
                 <img class="d-block w-100 align-content-center" src="{% static 'website/images/UNO-R.jpg' %}" alt="Second slide">
                 <div class="mask rgba-black-strong"></div>
@@ -99,17 +95,15 @@
         <div class="carousel-item">
             <!--Mask color-->
             <div class="view">
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
-                <div class="mask rgba-black-dark"></div>
+                <img class="d-block w-100" src="{{outreach.outreach_image.url}}" alt="Third slide">
+                <div class="mask rgba-black-strong"></div>
             </div>
             <div class="carousel-caption">
-                <h3 class="h3-responsive">Slight mask</h3>
-                <p>Third text</p>
+                <h3 class="h3-responsive">Most Recent Outreach: {{outreach.outreach_title}}</h3>
+                <p><a href="{% url 'outreach_item' outreach.id %}" class="btn btn-sm btn-outline-primary"><span class="text-white">Read More</span></a></p>
             </div>
         </div>
     </div>
-    <!--/.Slides-->
-    <!--Controls-->
     <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
@@ -118,79 +112,12 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-    <!--/.Controls-->
 </div>
 
-<div class="container">
-    <!--<div class="row text-center">-->
-        <!--<div class="col-lg-4 col-md-6 mb-4">-->
-          <!--<div class="card">-->
-              <!--<a href="programs">-->
-                <!--<img class="card-img-top" src="{% static 'website/images/programs.jpg' %}" alt="Card image cap" style="height:226.45px;">-->
-              <!--</a>-->
-              <!--<div class="card-body">-->
-                  <!--<div class="card-block">-->
-              <!--<h4 class="card-title blue-text">-->
-                  <!--Programs-->
-              <!--</h4>-->
-              <!--<p class="card-text text-dark">View the list of all programs offered by the Recoletos de Bacolod Graduate School.</p>-->
-                  <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-lg-4 col-md-6 mb-4">-->
-          <!--<div class="card">-->
-              <!--<a href="researches">-->
-                <!--<img class="card-img-top" src="{% static 'website/images/research.jpg' %}" alt="Card image cap" style="height:226.45px">-->
-              <!--</a>-->
-              <!--<div class="card-body">-->
-                  <!--<div class="card-block">-->
-                      <!--<h4 class="card-title blue-text">Researches</h4>-->
-                      <!--<p class="card-text text-dark">The repository of all research compilations by the students.</p>-->
-                  <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-lg-4 col-md-6 mb-4">-->
-          <!--<div class="card">-->
-              <!--<a href="outreach">-->
-                <!--<img class="card-img-top" src="{% static 'website/images/outreach.jpg' %}" alt="Card image cap" style="height:226.45px;">-->
-              <!--</a>-->
-              <!--<div class="card-body">-->
-                  <!--<div class="card-block">-->
-              <!--<h4 class="card-title blue-text">Outreach</h4>-->
-              <!--<p class="card-text text-dark">Reaching out to all sectors of the society, no matter what status.</p>-->
-                  <!--</div>-->
-              <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-</div>
-<span class="text-white" style="font-family: 'Calibri Light'; font-size: large" id="aboutrbgs">
-	<div style = "width: 100%; background: #191970;">
-			<div class = "container">
-				<div class = "row">
-                    <div class="col-lg-4 text-center align-middle mt-4 mb-4">
-                        <h1>OUR MISSION</h1>
-                    </div>
-                    <div class="col-lg-8 text-center  align-middle mt-4 mb-4">
-                        Recoletos de Bacolod Graduate School commits to provide excellent education that integrates Gospel values in various professions, offers opportunities for collaborative and independent researches through local, national and international linkages and produce value laden managers and leaders, educators, researchers, medical & other health related professions, social and behavioral practioners.
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 text-center align-middle  mt-4 mb-4">
-                        Recoletos de Bacolod Graduate School provides relevant, responsible and stimulating curricula/programs for clientele to synergize theories, principles and practices to meet the challenges of a dynamic and changing society and
-                        delivers higher education services in a manner that is efficient, coordinated and accessible.
-                    </div>
-                    <div class="col-lg-4 text-center align-content-center mt-4 mb-4">
-                        <h1>OUR GOALS</h1>
-                    </div>
-                </div>
-			</div>
-    </div>
+<span style="font-family: 'Calibri Light'; font-size: large" id="aboutrbgs">
     <div class="container">
         <section class="text-center text-dark">
-            <h1 class="py-5 font-weight-bold ">Why Recoletos de Bacolod Graduate Schoo?</h1>
+            <h1 class="py-5 font-weight-bold ">What is Recoletos de Bacolod Graduate Schoo?</h1>
             <p class="px-5 mb-5 pb-3 lead text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua. Ut enim ad minim veniam.</p>
             <div class="row">
@@ -218,32 +145,52 @@
             </div>
         </section>
     </div>
-    <div class = "container text-dark">
-        <div class = "row">
-            <div class = "col-lg-12" style="text-align: center;"> <br>
+<div class="card card-image" style="background-image: url('{% static "website/images/UNO-R.jpg" %}'); background-attachment:fixed; background-position:center;">
 
-            <h1> <b> THE UNIVERSITY </b> </h1>
-            Be in the know how did the university came into being.
-            <br> <br>
-                <a href="http://www.uno-r.edu.ph/about/" class="btn btn-primary">Learn More</a>
-            <br> <br>
-            </div>
+    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div class="container">
+            <h1 class="yellow-text">Our Mission</h1>
+            <p>
+                Recoletos de Bacolod Graduate School commits to provide excellent education that
+                integrates Gospel values in various professions, offers opportunities for collaborative
+                and independent researches through local, national and international linkages and produce
+                value laden managers and leaders, educators, researchers, medical & other health related professions,
+                social and behavioral practioners.
+            </p>
         </div>
     </div>
-		<div style = "background: #050525; width: 100%;">
-			<div class = "container">
-				<div class = "row">
-					<div class = "col-lg-12" style="text-align: center;"> <br>
+</div>
 
-					<h1> <b> ADMISSION REQUIREMENTS </b> </h1>
-					How to apply for the Graduate School.
-					<br> <br>
-						<a href="http://www.uno-r.edu.ph/academics/departments/rbgs/" class="btn btn-primary">Learn More</a>
-					<br> <br>
-					</div>
-				</div>
-			</div>
-	     </div>
-	</span>
+<div class="text-grey text-center d-flex align-items-center py-5 px-4">
+    <div class="container">
+        <h1 class="blue-text">Our Goals</h1>
+        <p>
+            Recoletos de Bacolod Graduate School provides relevant, responsible and stimulating curricula/programs
+            for clientele to synergize theories, principles and practices to meet the challenges of a dynamic and changing
+            society and delivers higher education services in a manner that is efficient, coordinated and accessible.
+        </p>
+    </div>
+</div>
+<div class="card mt-4 card-image" style="background-image: url('{% static "website/images/UNO-R_logo.jpg" %}'); background-attachment:fixed; background-position:top;">
+    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div class="container">
+            <h1 class="yellow-text"><i class="fa fa-graduation-cap"></i> About The University</h1>
+            <h3 class="card-title pt-2"><strong>Be in the know how did the university came into being.</strong></h3>
+            <p>
+                <a href="http://www.uno-r.edu.ph/about" class="btn btn-lg btn-outline-yellow"><span class="white-text">Read More</span></a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="text-grey text-center d-flex align-items-center py-5 px-4">
+    <div class="container">
+        <h1 class="blue-text">Admission Requirements</h1>
+        <h3 class="card-title pt-2"><strong>How to apply for the Graduate School Programs.</strong></h3>
+        <p>
+            <a href="http://www.uno-r.edu.ph/about" class="btn btn-lg btn-outline-blue rounded"><span class="blue-text">Read More</span></a>
+        </p>
+    </div>
+</div>
+</span>
 
 {% endblock %}
