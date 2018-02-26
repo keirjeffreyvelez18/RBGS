@@ -2,11 +2,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost, FacultyMember, OutreachPost
+from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
+import time
+import calendar
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -29,6 +31,7 @@ def news(request, template_name='website/news.html'):
 	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(news_list, 3)
+	months = mkmonth_lst()
 
 	try:
 		news = paginator.page(page)
@@ -36,7 +39,20 @@ def news(request, template_name='website/news.html'):
 		news = paginator.page(1)
 	except EmptyPage:
 		news = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'news' : news})
+	return render(request, template_name, {'news' : news,"months":months})
+
+def upcomingevents(request, template_name='website/upcomingevents.html'):
+	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	page = request.GET.get('page', 1)
+	paginator = Paginator(events_list, 3)
+
+	try:
+		events = paginator.page(page)
+	except PageNotAnInteger:
+		events = paginator.page(1)
+	except EmptyPage:
+		events = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'events' : events})
 
 def outreach(request):
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
@@ -118,9 +134,11 @@ def nursing(request, template_name='website/list_filtered.html'):
 	data['dept'] = "Nursing"
 	return render(request, template_name, data )
 
-def index (request):
-	template = loader.get_template('website/index.html')
-	return HttpResponse (template.render({},request))
+def index (request, template_name='website/index.html'):
+	news = NewsPost.objects.order_by('-news_date','-news_time')[0]
+	events = UpcomingEvent.objects.order_by('event_date','event_time')[0]
+	outreach = OutreachPost.objects.order_by('-outreach_date')[0]
+	return render(request, template_name, {'news':news,'events':events,'outreach':outreach})
 
 def program(request):
 	template = loader.get_template('website/program.html')
@@ -142,14 +160,22 @@ def contactus(request):
 	template = loader.get_template('website/contactus.html')
 	return HttpResponse(template.render({}, request))
 
-def content_news(request):
-	template = loader.get_template('website/content_news.html')
-	return HttpResponse(template.render({}, request))
+def mkmonth_lst():
+	if not NewsPost.objects.count(): return []
 
-def content_outreach(request):
-	template = loader.get_template('website/content_outreach.html')
-	return HttpResponse(template.render({}, request))
+	# set up vars
+	year, month = time.localtime()[:2]
+	first = NewsPost.objects.order_by("news_date")[0]
+	fyear = first.news_date.year
+	fmonth = first.news_date.month
+	months = []
 
-def content_programs(request):
-	template = loader.get_template('website/content_programs.html')
-	return HttpResponse(template.render({}, request))
+	# loop over years and months
+	for y in range(year, fyear-1, -1):
+		start, end = 12, 0
+		if y == year: start = month
+		if y == fyear: end = fmonth-1
+
+		for m in range(start, end, -1):
+			months.append((y, m, calendar.month_name[m]))
+	return months

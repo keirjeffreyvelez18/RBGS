@@ -1,26 +1,24 @@
 from django.db import models
-
+from datetime import time
 
 class Program (models.Model):
 	program_name = models.CharField(null="", max_length=100)
 	program_description = models.CharField(null="", max_length=2000)
 	program_department = models.CharField(null="", max_length=50)
+	program_level = models.CharField(null="", max_length=1000)
 
 	def __str__(self):
 		return self.program_name
 
-class UpdatePost(models.Model):
-	update_title = models.CharField(null="", max_length=1000)
+class UpcomingEvent(models.Model):
+	event_name = models.CharField(null="",max_length=1000)
+	event_details = models.CharField(null="",max_length=10000)
+	event_date = models.DateField(null="")
+	event_time = models.TimeField(null="", help_text="Format: HH:MM:SS, 24H. e.g 15:30:00 is 3:30PM")
+	event_datecreated = models.DateTimeField(null="",auto_now_add=True)
 
 	def __str__(self):
-		return self.update_title
-
-class BlogPost(models.Model):
-	blog_title = models.CharField(null="", max_length=50)
-	blog_author = models.CharField(null="", max_length=50)
-	blog_date = models.DateField()
-	blog_content = models.CharField(null="", max_length=5000)
-	blog_image = models.FileField()
+		return self.event_name
 
 class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)
@@ -61,7 +59,7 @@ class NewsPost(models.Model):
 	news_description = models.CharField(null="",max_length=10000, help_text="Full content")
 	news_author = models.CharField(null="",max_length=1000, help_text="Author of the article")
 	news_image = models.FileField(null="", help_text="Headline Image of the article")
-	news_date = models.DateField(null="", auto_now_add=True)
+	news_date = models.DateField(null="")
 	news_time = models.TimeField(null="", auto_now_add=True)
 
 	def __str__(self):

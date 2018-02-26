@@ -2,141 +2,194 @@
 
 {% load static %}
 
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-lg-12">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/"> Home
+                            <span class="sr-only"></span>
+                          </a>
+                        </li>
+                        <li class="nav-item dropdown menu-large ml-4">
+                          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programs</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdown07">
+                                <a class="dropdown-item" href="/list">All Programs</a>
+                                <a class="dropdown-item" href="/program">Program Departments</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/education">Education</a>
+                                <a class="dropdown-item" href="/business">Business Management and Administration</a>
+                                <a class="dropdown-item" href="/administration">Public Administration and Governance</a>
+                                <a class="dropdown-item" href="/management">Development Management</a>
+                                <a class="dropdown-item" href="/computer_studies">Computer Studies</a>
+                                <a class="dropdown-item" href="/criminal_justice">Criminal Justice Education</a>
+                                <a class="dropdown-item" href="/psychology">Psychology and Guidance and Counseling</a>
+                                <a class="dropdown-item" href="/nursing">Nursing</a>
+
+                          </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/faculty">Faculty</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link ml-4" href="/research">Researches</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/outreach">Outreach</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item ml-4 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Updates <i class="fa fa-bullhorn"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                                <a class="dropdown-item" href="/upcomingevents">Upcoming Events</a>
+                            <a class="dropdown-item" href="/news">News</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
 {% block content %}
-      <!-- Jumbotron Header -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide" src="{% static 'website/images/UNO-R_logo_at_the_Lobby.jpg' %}" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption text-left">
-                <h1>Recoletos de Bacolod Graduate School</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#aboutrbgs" role="button">Read More</a></p>
-              </div>
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <div class="view">
+                <img class="d-block w-100" src="{{news.news_image.url}}" alt="First slide">
+                <div class="mask rgba-black-light"></div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img class="second-slide" src="{% static 'website/images/High_Department.jpg' %}" alt="Second slide">
-            <div class="container">
-              <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="third-slide" src="{% static 'website/images/UNO-R_Lobby1.jpg' %}" alt="Third slide">
-            <div class="container">
-              <div class="carousel-caption text-right">
-                <h1>One more for good measure.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-<div class="container">
-    <div class="row text-center">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-              <a href="programs">
-                <img class="card-img-top" src="{% static 'website/images/programs.jpg' %}" alt="Card image cap" style="height:226.45px;">
-              </a>
-              <div class="card-body">
-                  <div class="card-block">
-              <h4 class="card-title">Programs</h4>
-              <p class="card-text">View the list of all programs offered by the Recoletos de Bacolod Graduate School.</p>
-                  </div>
-              </div>
+            <div class="carousel-caption">
+                <h2 class="h3-responsive">Latest News: {{news.news_title}}</h2>
+                <p><a href="{% url 'news_item' news.id %}" class="btn btn-sm btn-outline-primary"><span class="text-white">Read More</span></a></p>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-              <a href="researches">
-                <img class="card-img-top" src="{% static 'website/images/research.jpg' %}" alt="Card image cap" style="height:226.45px">
-              </a>
-              <div class="card-body">
-                  <div class="card-block">
-                      <h4 class="card-title">Researches</h4>
-                      <p class="card-text">The repository of all research compilations by the students.</p>
-                  </div>
-              </div>
+        <div class="carousel-item">
+            <div class="view">
+                <img class="d-block w-100 align-content-center" src="{% static 'website/images/UNO-R.jpg' %}" alt="Second slide">
+                <div class="mask rgba-black-strong"></div>
+            </div>
+            <div class="carousel-caption">
+                <h2 class="h3-responsive">Upcoming: {{events.event_name}}</h2>
+                <p>In {{events.event_date|timeuntil}}</p>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-              <a href="outreach">
-                <img class="card-img-top" src="{% static 'website/images/outreach.jpg' %}" alt="Card image cap" style="height:226.45px;">
-              </a>
-              <div class="card-body">
-                  <div class="card-block">
-              <h4 class="card-title">Outreach</h4>
-              <p class="card-text">Reaching out to all sectors of the society, no matter what status.</p>
-                  </div>
-              </div>
+        <div class="carousel-item">
+            <!--Mask color-->
+            <div class="view">
+                <img class="d-block w-100" src="{{outreach.outreach_image.url}}" alt="Third slide">
+                <div class="mask rgba-black-strong"></div>
+            </div>
+            <div class="carousel-caption">
+                <h3 class="h3-responsive">Most Recent Outreach: {{outreach.outreach_title}}</h3>
+                <p><a href="{% url 'outreach_item' outreach.id %}" class="btn btn-sm btn-outline-primary"><span class="text-white">Read More</span></a></p>
             </div>
         </div>
-      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
-<span style = "font-family: arial; color: white;"  id="aboutrbgs">
-	<div style = "width: 100%; background: #191970;">
-			<div class = "container">
-				<div class = "row">
-                    <div class="col-lg-12 text-center">
-                        <br>
-                        <h1> <b> OUR MISSION </b> </h1>
-                        Recoletos de Bacolod Graduate School commits to provide excellent education that integrates Gospel values in various professions, offers opportunities for collaborative and independent researches through local, national and international linkages and produce value laden managers and leaders, educators, researchers, medical & other health related professions, social and behavioral practioners.
-                        <br> <br>
-                        <h1> <b> OUR GOALS </b> </h1>
-                        Recoletos de Bacolod Graduate School provides relevant, responsible and stimulating curricula/programs for clientele to synergize theories, principles and practices to meet the challenges of a dynamic and changing society and
-                        delivers higher education services in a manner that is efficient, coordinated and accessible.
-                        <br> <br>
-                    </div>
-				</div>
-			</div>
-    </div>
-    <div class = "container text-dark">
-        <div class = "row">
-            <div class = "col-lg-12" style="text-align: center;"> <br>
 
-            <h1> <b> THE UNIVERSITY </b> </h1>
-            Be in the know how did the university came into being.
-            <br> <br>
-                <a href="http://www.uno-r.edu.ph/about/" class="btn btn-primary">Learn More</a>
-            <br> <br>
+<span style="font-family: 'Calibri Light'; font-size: large" id="aboutrbgs">
+    <div class="container">
+        <section class="text-center text-dark">
+            <h1 class="py-5 font-weight-bold ">What is Recoletos de Bacolod Graduate Schoo?</h1>
+            <p class="px-5 mb-5 pb-3 lead text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam.</p>
+            <div class="row">
+            <div class="col-md-4">
+                <i class="fa fa-chart-line fa-3x red-text"></i>
+                <h5 class="font-weight-bold mt-3">Analytics</h5>
+                <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti
+                hic.
+                </p>
             </div>
+            <div class="col-md-4">
+                <i class="fa fa-book fa-3x cyan-text"></i>
+                <h5 class="font-weight-bold mt-3">Tutorials</h5>
+                <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti
+                hic.
+                </p>
+            </div>
+            <div class="col-md-4">
+                <i class="fa fa-trophy fa-3x orange-text"></i>
+                <h5 class="font-weight-bold mt-3">Certified</h5>
+                <p class="text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maiores nam, aperiam minima assumenda deleniti
+                hic.
+                </p>
+            </div>
+            </div>
+        </section>
+    </div>
+<div class="card card-image" style="background-image: url('{% static "website/images/UNO-R.jpg" %}'); background-attachment:fixed; background-position:center;">
+
+    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div class="container">
+            <h1 class="yellow-text">Our Mission</h1>
+            <p>
+                Recoletos de Bacolod Graduate School commits to provide excellent education that
+                integrates Gospel values in various professions, offers opportunities for collaborative
+                and independent researches through local, national and international linkages and produce
+                value laden managers and leaders, educators, researchers, medical & other health related professions,
+                social and behavioral practioners.
+            </p>
         </div>
     </div>
-		<div style = "background: #050525; width: 100%;">
-			<div class = "container">
-				<div class = "row">
-					<div class = "col-lg-12" style="text-align: center;"> <br>
+</div>
 
-					<h1> <b> ADMISSION REQUIREMENTS </b> </h1>
-					How to apply for the Graduate School.
-					<br> <br>
-						<a href="http://www.uno-r.edu.ph/academics/departments/rbgs/" class="btn btn-primary">Learn More</a>
-					<br> <br>
-					</div>
-				</div>
-			</div>
-	     </div>
-	</span>
-
+<div class="text-grey text-center d-flex align-items-center py-5 px-4">
+    <div class="container">
+        <h1 class="blue-text">Our Goals</h1>
+        <p>
+            Recoletos de Bacolod Graduate School provides relevant, responsible and stimulating curricula/programs
+            for clientele to synergize theories, principles and practices to meet the challenges of a dynamic and changing
+            society and delivers higher education services in a manner that is efficient, coordinated and accessible.
+        </p>
+    </div>
+</div>
+<div class="card mt-4 card-image" style="background-image: url('{% static "website/images/UNO-R_logo.jpg" %}'); background-attachment:fixed; background-position:top;">
+    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div class="container">
+            <h1 class="yellow-text"><i class="fa fa-graduation-cap"></i> About The University</h1>
+            <h3 class="card-title pt-2"><strong>Be in the know how did the university came into being.</strong></h3>
+            <p>
+                <a href="http://www.uno-r.edu.ph/about" class="btn btn-lg btn-outline-yellow"><span class="white-text">Read More</span></a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="text-grey text-center d-flex align-items-center py-5 px-4">
+    <div class="container">
+        <h1 class="blue-text">Admission Requirements</h1>
+        <h3 class="card-title pt-2"><strong>How to apply for the Graduate School Programs.</strong></h3>
+        <p>
+            <a href="http://www.uno-r.edu.ph/about" class="btn btn-lg btn-outline-blue rounded"><span class="blue-text">Read More</span></a>
+        </p>
+    </div>
+</div>
+</span>
 {% endblock %}

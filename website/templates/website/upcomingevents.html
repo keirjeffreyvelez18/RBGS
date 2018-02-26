@@ -1,5 +1,4 @@
 {% extends 'website/base.html' %}
-
 {% load static %}
 
 {% block navbar %}
@@ -63,76 +62,62 @@
     </div>
 </nav>
 {% endblock %}
+
 {% block breadcrumb %}
 <div class="container mt-4">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active">News</li>
+        <li class="breadcrumb-item active">Upcoming Events</li>
     </ol>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
+<div class="container">
+  <div class="row">
       <div class="col-lg-8">
-      {% for NewsPost in news %}
-      <div class="row mt-2 mb-2 wow fadeIn" data-wow-delay="0.2s">
-          <div class="col-lg-5 col-xl-5 pb-3">
-                <!--Featured image-->
-                <div class="view overlay rounded z-depth-2">
-                    <img src="{{ NewsPost.news_image.url }}" alt="Sample image for first version of blog listing"
-                        class="img-fluid">
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-7 col-xl-7">
-                <!--Excerpt-->
-                <h3 class="mb-4 font-weight-bold dark-grey-text">
-                    <strong>{{NewsPost.news_title}}</strong>
-                </h3>
-                <p>
-                    {{NewsPost.news_shortdesc|slice:"0:100"}}...
+        {% for UpcomingEvent in events %}
+        <div class="col-lg-12 col-md-8">
+          <div class="card mb-3">
+            <!--<img src="{{ UpcomingEvent.news_image.url }}" alt="" class="card-img-top">-->
+            <div class="card-block card-body">
+              <h4 class="card-title">
+                <a href="">{{UpcomingEvent.event_name}}</a>
+              </h4>
+                <p class="card-text">
+                    {{ UpcomingEvent.event_details }}
+                    <br>
+                    {{ UpcomingEvent.event_date}}
                 </p>
-                <p>by <strong>{{NewsPost.news_author}}</strong>, {{NewsPost.news_date}}</p>
-                <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary btn-md mb-3">Read more</a>
+              <p class="card-text">
+                  <small class="text-muted">
+                    Posted:{{UpcomingEvent.event_datecreated}}
+                  </small>
+              </p>
             </div>
+          </div>
         </div>
-        <hr class="mb-5 mt-5 pb-3">
-      {% endfor %}
-      </div>
-        <div class="col-lg-4">
-            Monthly Archive
-            {% for month in months %}
-                {% ifchanged month.0 %}
-                    <span class="list-group-item">{{ month.0 }}</span>
-                {% endifchanged %}
-                    <a class="list-group-item" href="">{{ month.2 }}</a>
-            {% endfor %}
-        </div>
+        <br>
+        {% endfor %}
+          </div>
     </div>
-
-
-    </div>
-    <div class="row mb-4">
+    <div class="row ">
         <div class="col-md-12">
-            {% if news.has_other_pages %}
+            {% if events.has_other_pages %}
                 <ul class="pagination justify-content-center">
-                    {% if news.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page={{ news.previous_page_number }}">Previous</a></li>
+                    {% if events.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ events.previous_page_number }}">Previous</a></li>
                     {% else %}
                     <li class="page-item disabled"><span class="page-link">Previous</span></li>
                 {% endif %}
-                {% for i in news.paginator.page_range %}
-                    {% if news.number == i %}
+                {% for i in events.paginator.page_range %}
+                    {% if events.number == i %}
                         <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
                     {% else %}
                         <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
                     {% endif %}
                 {% endfor %}
-                {% if news.has_next %}
-                    <li class="page-item"><a class="page-link" href="?page={{ news.next_page_number }}">Next</a></li>
+                {% if events.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ events.next_page_number }}">Next</a></li>
                     {% else %}
                     <li class="page-item disabled"><span class="page-link" >Next</span></li>
                 {% endif %}
@@ -140,5 +125,6 @@
             {% endif %}
         </div>
     </div>
+  <br>
 </div>
 {% endblock %}

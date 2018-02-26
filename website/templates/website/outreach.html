@@ -2,31 +2,92 @@
 
 {% load static %}
 
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-lg-12">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                          <a class="nav-link" href="/"> Home
+                            <span class="sr-only"></span>
+                          </a>
+                        </li>
+                        <li class="nav-item dropdown menu-large ml-4">
+                          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programs</a>
+                          <div class="dropdown-menu" aria-labelledby="dropdown07">
+                                <a class="dropdown-item" href="/list">All Programs</a>
+                                <a class="dropdown-item" href="/program">Program Departments</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/education">Education</a>
+                                <a class="dropdown-item" href="/business">Business Management and Administration</a>
+                                <a class="dropdown-item" href="/administration">Public Administration and Governance</a>
+                                <a class="dropdown-item" href="/management">Development Management</a>
+                                <a class="dropdown-item" href="/computer_studies">Computer Studies</a>
+                                <a class="dropdown-item" href="/criminal_justice">Criminal Justice Education</a>
+                                <a class="dropdown-item" href="/psychology">Psychology and Guidance and Counseling</a>
+                                <a class="dropdown-item" href="/nursing">Nursing</a>
+
+                          </div>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/faculty">Faculty</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link ml-4" href="/research">Researches</a>
+                        </li>
+                        <li class="nav-item ml-4 active">
+                          <a class="nav-link" href="/outreach">Outreach</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item ml-4 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Updates <i class="fa fa-bullhorn"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                                <a class="dropdown-item" href="/upcomingevents">Upcoming Events</a>
+                            <a class="dropdown-item" href="/news">News</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
 {% block content %}
 <div class="container">
       <h1 class="my-4">Outreach Programs
-        <small>Latest Activities</small>
       </h1>
-      <div class="row">
+      <div class="row card-group">
       {% for OutreachPost in outreach %}
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card">
-            <div class="container" style="overflow:hidden; width: 100%; height: 150px;">
+        <div class="col-lg-4 mb-4">
+            <div class="card card-cascade wider">
+            <div class="view overlay">
+                <img src="{{ OutreachPost.outreach_image.url }}" style="object-fit: cover;" class="card-img-top img-fluid">
+                <a href="{% url 'outreach_item' OutreachPost.id %}">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body text-center">
               <a href="{% url 'outreach_item' OutreachPost.id %}">
-                <img class="card-img-top" src="{{ OutreachPost.outreach_image.url }}" alt="not found" style="object-fit: cover;">
+              <h4 class="card-title"><strong>{{ OutreachPost.outreach_title }}</strong></h4>
               </a>
+              <h5 class="indigo-text"><strong>{{ OutreachPost.outreach_date }}</strong></h5>
+              <a href="{% url 'outreach_item' OutreachPost.id %}" class="d-flex justify-content-end"><h5>Read more</h5><span><i class="fa fa-chevron-right pl-2"></i></span></a>
             </div>
-            <div class="card-body">
-              <a href="{% url 'outreach_item' OutreachPost.id %}">
-                <p class="card-title"><strong>{{ OutreachPost.outreach_title }}</strong></p>
-              </a>
-                <hr>
-              <p class="card-text">{{ OutreachPost.outreach_date }}</p>
-            </div>
-            <div class="card-footer">
-              <a href="{% url 'outreach_item' OutreachPost.id %}" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
+            <!--/.Card content-->
+
+        </div>
         </div>
       {% endfor %}
         <br>
