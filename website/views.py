@@ -188,4 +188,9 @@ def login(request, template_name='website/login.html'):
 	return render(request, template_name)
 
 def dashboard(request, template_name='website/dashboard.html'):
-	return render(request, template_name)
+	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	events_count = events_list.count()
+	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	news_count = news_list.count()
+	context = {'events_list':events_list, 'events_count':events_count, 'news_list':news_list,'news_count':news_count }
+	return render(request, template_name, context)

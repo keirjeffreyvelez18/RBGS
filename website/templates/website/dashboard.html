@@ -1,41 +1,80 @@
 {% extends 'website/styles.html' %}
 {% load static %}
 {% block content %}
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
-    <div class="container">
-        <a class="navbar-brand" href="#">RBGS Dashboard</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong>RBGS | CMS</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="view intro-2">
+        <div class="full-bg-img">
+            <div class="mask rgba-indigo-slight flex-center">
+                <div class="container">
+                    <div class="white-text text-center wow fadeInUp">
+                        <h2>This Navbar isn't fixed</h2>
+                        <h5>When you scroll down it will disappear</h5>
+                        <br>
+                        <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
                     </div>
-                </li>
-            </ul>
-            <form class="form-inline">
-                <div class="md-form mt-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-</nav>
+</header>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <ul class="list-group  md-pills pills-primary flex-column" role="tablist">
+                    <li class="list-group-item">
+                        <a class="nav-link active" data-toggle="tab" href="#panel21" role="tab">Downloads
+                        <i class="fa fa-download ml-2"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel22" role="tab">Orders & invoices
+                        <i class="fa fa-file-text ml-2"></i>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="nav-link" data-toggle="tab" href="#panel23" role="tab">Billing details
+                        <i class="fa fa-address-card ml-2"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="tab-content vertical">
+                <div class="tab-pane fade in show active" id="panel21" role="tabpanel">
+
+                    <h5 class="my-2 h5">Panel 1</h5>
+
+                </div>
+                <div class="tab-pane fade" id="panel22" role="tabpanel">
+
+                    <h5 class="my-2 h5">Panel 2</h5>
+
+                </div>
+                <div class="tab-pane fade" id="panel23" role="tabpanel">
+                    <h5 class="my-2 h5">Panel 3</h5>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
