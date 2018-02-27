@@ -191,6 +191,7 @@ def dashboard(request, template_name='website/dashboard.html'):
 	events_list = UpcomingEvent.objects.all().order_by('event_date')
 	events_count = events_list.count()
 	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	latest_news = news_list[0]
 	news_count = news_list.count()
-	context = {'events_list':events_list, 'events_count':events_count, 'news_list':news_list,'news_count':news_count }
+	context = {'events_list':events_list, 'events_count':events_count, 'news_list':news_list,'news_count':news_count,'latest_news':latest_news }
 	return render(request, template_name, context)
