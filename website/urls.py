@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^psychology', views.psychology, name='psychology'),
     url(r'^nursing', views.nursing, name='nursing'),
     url(r'^Programs/(?P<pk>\d+)$', views.program_item, name='program_item'),
+    url(r'^login', views.login, name='login'),
+    url(r'^dashboard', views.dashboard, name='dashboard'),
 ]

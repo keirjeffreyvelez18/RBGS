@@ -179,3 +179,13 @@ def mkmonth_lst():
 		for m in range(start, end, -1):
 			months.append((y, m, calendar.month_name[m]))
 	return months
+
+
+
+
+
+def login(request, template_name='website/login.html'):
+	return render(request, template_name)
+
+def dashboard(request, template_name='website/dashboard.html'):
+	return render(request, template_name)
