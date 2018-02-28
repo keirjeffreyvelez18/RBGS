@@ -4,7 +4,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><strong>RBGS | CMS</strong></a>
+            <a class="navbar-brand" href="dashboard"><strong>RBGS | CMS</strong></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,12 +41,12 @@
             </ul>
         </div>
     </div>
-    <div class="row mt-4">
+    <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
                     <table class="table">
-                        <thead class="white text-dark">
+                        <thead class="white bg-light">
                           <tr>
                             <th>Post</th>
                             <th>Number of Posts</th>
@@ -55,12 +55,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>News</td>
+                                <td><a class="blue-text" href="{% url 'postlist' 'News' %}">News</a></td>
                                 <td>{{news_count}}</td>
                                 <td>{{latest_news.news_title}}</td>
                             </tr>
                             <tr>
-                                <td>Upcoming Events</td>
+                                <td><a class="blue-text" href="{% url 'postlist' 'Events' %}">Upcoming Events</a></td>
                                 <td>{{events_count}}</td>
                                 <td>{{latest_news.news_title}}</td>
                             </tr>

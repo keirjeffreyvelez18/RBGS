@@ -215,3 +215,21 @@ def dashboard(request, template_name='website/dashboard.html'):
 			   'outreach_count':outreach_count
 			   }
 	return render(request, template_name, context)
+
+def postlist(request, string, template_name='website/post-list.html'):
+	context = {}
+	if string=='News':
+		context = NewsPost.objects.all().order_by('-news_date','-news_time')
+	if string=='Events':
+		context = UpcomingEvent.objects.all().order_by('event_date')
+
+	page = request.GET.get('page', 1)
+	paginator = Paginator(context, 10)
+
+	try:
+		content = paginator.page(page)
+	except PageNotAnInteger:
+		content = paginator.page(1)
+	except EmptyPage:
+		content = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'content':content,'post':string})

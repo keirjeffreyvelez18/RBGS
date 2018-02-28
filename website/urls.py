@@ -25,4 +25,5 @@ urlpatterns = [
     url(r'^Programs/(?P<pk>\d+)$', views.program_item, name='program_item'),
     url(r'^login', views.login, name='login'),
     url(r'^dashboard', views.dashboard, name='dashboard'),
+    url(r'^postlist/(?P<string>[\w\-]+)/$', views.postlist, name='postlist'),
 ]

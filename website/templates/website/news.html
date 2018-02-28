@@ -96,7 +96,7 @@
                     {{NewsPost.news_shortdesc|slice:"0:100"}}...
                 </p>
                 <p>by <strong>{{NewsPost.news_author}}</strong>, {{NewsPost.news_date}}</p>
-                <a href=" " class="btn btn-primary btn-md mb-3">Read more</a>
+                <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary btn-md mb-3">Read more</a>
             </div>
         </div>
         <hr class="mb-5 mt-5 pb-3">
