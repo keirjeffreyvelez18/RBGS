@@ -2,13 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 import time
 import calendar
+
+
+from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent, Alumni
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -65,6 +67,18 @@ def outreach(request):
 	except EmptyPage:
 		outreach = paginator.page(paginator.num_pages)
 	return render(request, 'website/outreach.html', {'outreach': outreach})
+
+def alumni(request):
+	alumni_list = Alumni.objects.all().order_by('-outreach_date')
+	page = request.GET.get('page', 1)
+	paginator = Paginator(alumni_list, 6)
+	try:
+		alumni = paginator.page(page)
+	except PageNotAnInteger:
+		alumni = paginator.page(1)
+	except EmptyPage:
+		alumni = paginator.page(paginator.num_pages)
+	return render(request, 'website/alumni.html', {'alumni': alumni})
 
 def program_item(request, pk, template_name='website/program_item.html'):
 	program = get_object_or_404(Program, pk=pk)
@@ -193,5 +207,11 @@ def dashboard(request, template_name='website/dashboard.html'):
 	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
 	latest_news = news_list[0]
 	news_count = news_list.count()
-	context = {'events_list':events_list, 'events_count':events_count, 'news_list':news_list,'news_count':news_count,'latest_news':latest_news }
+	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
+	outreach_count = outreach_list.count()
+	context = {'events_list':events_list, 'events_count':events_count,
+			   'news_list':news_list,'news_count':news_count,
+			   'latest_news':latest_news,'outreach_list':outreach_list,
+			   'outreach_count':outreach_count
+			   }
 	return render(request, template_name, context)

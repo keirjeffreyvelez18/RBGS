@@ -65,6 +65,15 @@ class NewsPost(models.Model):
 	def __str__(self):
 		return  self.news_title
 
+class Alumni(models.Model):
+	alumni_name = models.CharField(null="", max_length=1000, help_text="Full name along with prefix and suffixes.")
+	alumni_description = models.CharField(null="", max_length=5000, help_text="Short Bio of the alumni")
+	alumni_contact = models.CharField(null="", max_length=5000, help_text="LinkedIn URL, Contact Number")
+	alumni_image = models.FileField(null="", help_text="2x2 or Professional Image of the Alumni")
+
+	def __str__(self):
+		return self.alumni_name
+
 
 # to migrate database use the following commands
 # python manage.py makemigrations [nameofApp]
