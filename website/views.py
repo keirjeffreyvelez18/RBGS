@@ -10,7 +10,7 @@ import time
 import calendar
 
 
-from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent, Alumni
+from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent, Alumni, ResearchTitle
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -222,6 +222,10 @@ def postlist(request, string, template_name='website/post-list.html'):
 		context = NewsPost.objects.all().order_by('-news_date','-news_time')
 	if string=='Events':
 		context = UpcomingEvent.objects.all().order_by('event_date')
+	if string=='Outreach':
+		context = OutreachPost.objects.all().order_by('-outreach_date')
+	if string=='Research':
+		context = ResearchTitle.objects.all().order_by('research_title')
 
 	page = request.GET.get('page', 1)
 	paginator = Paginator(context, 10)

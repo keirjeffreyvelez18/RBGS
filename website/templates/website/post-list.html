@@ -52,6 +52,10 @@
                             <li class="list-group-item">{{content.news_title}}</li>
                         {% elif post == "Events" %}
                             <li class="list-group-item">{{content.event_name}}</li>
+                        {% elif post == "Outreach" %}
+                            <li class="list-group-item">{{content.outreach_title}}</li>
+                        {% elif post == "Research" %}
+                            <li class="list-group-item">{{content.research_title}}</li>
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -61,8 +65,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-md-12">
             {% if content.has_other_pages %}
-                <div class="card">
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination pg-blue justify-content-center">
                         {% if content.has_previous %}
                         <li class="page-item"><a class="page-link" href="?page={{ content.previous_page_number }}">Previous</a></li>
                         {% else %}
@@ -81,7 +84,6 @@
                         <li class="page-item disabled"><span class="page-link" >Next</span></li>
                     {% endif %}
                     </ul>
-                </div>
             {% endif %}
         </div>
     </div>
