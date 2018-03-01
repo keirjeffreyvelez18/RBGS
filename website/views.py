@@ -69,7 +69,7 @@ def outreach(request):
 	return render(request, 'website/outreach.html', {'outreach': outreach})
 
 def alumni(request):
-	alumni_list = Alumni.objects.all().order_by('-outreach_date')
+	alumni_list = Alumni.objects.all().order_by('alumni_name')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(alumni_list, 6)
 	try:
@@ -209,10 +209,15 @@ def dashboard(request, template_name='website/dashboard.html'):
 	news_count = news_list.count()
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
 	outreach_count = outreach_list.count()
+	alumni_list = Alumni.objects.all().order_by('alumni_name')
+	alumni_count = alumni_list.count()
+	research_list = ResearchTitle.objects.all().order_by('research_title')
+	research_count = research_list.count()
 	context = {'events_list':events_list, 'events_count':events_count,
 			   'news_list':news_list,'news_count':news_count,
 			   'latest_news':latest_news,'outreach_list':outreach_list,
-			   'outreach_count':outreach_count
+			   'outreach_count':outreach_count, 'alumni_list':alumni_list, 'alumni_count':alumni_count,
+			   'research_list':research_list, 'research_count':research_count
 			   }
 	return render(request, template_name, context)
 
@@ -226,6 +231,8 @@ def postlist(request, string, template_name='website/post-list.html'):
 		context = OutreachPost.objects.all().order_by('-outreach_date')
 	if string=='Research':
 		context = ResearchTitle.objects.all().order_by('research_title')
+	if string=='Alumni':
+		context = Alumni.objects.all().order_by('alumni_name')
 
 	page = request.GET.get('page', 1)
 	paginator = Paginator(context, 10)

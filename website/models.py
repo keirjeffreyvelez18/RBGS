@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import time
 
-class Program (models.Model):
+class Program(models.Model):
 	program_name = models.CharField(null="", max_length=100)
 	program_description = models.CharField(null="", max_length=2000)
 	program_department = models.CharField(null="", max_length=50)
