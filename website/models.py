@@ -70,6 +70,7 @@ class Alumni(models.Model):
 	alumni_description = models.CharField(null="", max_length=5000, help_text="Short Bio of the alumni")
 	alumni_contact = models.CharField(null="", max_length=5000, help_text="LinkedIn URL, Contact Number")
 	alumni_image = models.FileField(null="", help_text="2x2 or Professional Image of the Alumni")
+	alumni_url = models.URLField(null="", help_text="LinkedIn / Professional Website of the Alumni")
 
 	def __str__(self):
 		return self.alumni_name

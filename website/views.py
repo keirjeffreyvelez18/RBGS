@@ -71,7 +71,7 @@ def outreach(request):
 def alumni(request):
 	alumni_list = Alumni.objects.all().order_by('alumni_name')
 	page = request.GET.get('page', 1)
-	paginator = Paginator(alumni_list, 6)
+	paginator = Paginator(alumni_list, 8)
 	try:
 		alumni = paginator.page(page)
 	except PageNotAnInteger:
