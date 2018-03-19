@@ -2,7 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be73a0dd-ac6d-418f-a80c-942a10e7c038" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/18528017_1561919700486160_4045016971311580511_n.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/4HQBFtA.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/GRIZZLY_GOD.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/face.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/face_rFzmp7h.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/matt.PNG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/vlcsnap-2018-02-02-01h49m32s543.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/vlcsnap-2018-02-02-01h50m54s538.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/media/vlcsnap-2018-02-02-13h34m20s738.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/static/website/images/blue-gold.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0019_alumni.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0020_research.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0021_delete_research.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/migrations/0022_alumni_alumni_url.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/admin/newspost_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/alumni.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/dashboard.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/login.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/post-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/website/templates/website/styles.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RBGS/settings.py" afterPath="$PROJECT_DIR$/RBGS/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RBGS/urls.py" afterPath="$PROJECT_DIR$/RBGS/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/admin.py" afterPath="$PROJECT_DIR$/website/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/models.py" afterPath="$PROJECT_DIR$/website/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/contactus.html" afterPath="$PROJECT_DIR$/website/templates/website/contactus.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/faculty.html" afterPath="$PROJECT_DIR$/website/templates/website/faculty.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/index.html" afterPath="$PROJECT_DIR$/website/templates/website/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/list.html" afterPath="$PROJECT_DIR$/website/templates/website/list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/list_filtered.html" afterPath="$PROJECT_DIR$/website/templates/website/list_filtered.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/news.html" afterPath="$PROJECT_DIR$/website/templates/website/news.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/news_item.html" afterPath="$PROJECT_DIR$/website/templates/website/news_item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/outreach.html" afterPath="$PROJECT_DIR$/website/templates/website/outreach.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/outreach_item.html" afterPath="$PROJECT_DIR$/website/templates/website/outreach_item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/program.html" afterPath="$PROJECT_DIR$/website/templates/website/program.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/research.html" afterPath="$PROJECT_DIR$/website/templates/website/research.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/templates/website/upcomingevents.html" afterPath="$PROJECT_DIR$/website/templates/website/upcomingevents.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/urls.py" afterPath="$PROJECT_DIR$/website/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/website/views.py" afterPath="$PROJECT_DIR$/website/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,43 +53,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RBGS/urls.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/website/templates/website/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../photogallery/gallery/templates/gallery/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="news.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/website/templates/website/news.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/website/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
+            <state relative-caret-position="153">
+              <caret line="61" column="59" lean-forward="true" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -74,7 +82,6 @@
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/website/templates/website/home.html" />
         <option value="$PROJECT_DIR$/website/templates/website/carousel.html" />
-        <option value="$PROJECT_DIR$/website/templates/website/index.html" />
         <option value="$PROJECT_DIR$/website/templates/website/program.html" />
         <option value="$PROJECT_DIR$/website/templates/website/research.html" />
         <option value="$PROJECT_DIR$/website/templates/website/outreach.html" />
@@ -84,10 +91,11 @@
         <option value="$PROJECT_DIR$/website/forms.py" />
         <option value="$PROJECT_DIR$/website/admin.py" />
         <option value="$PROJECT_DIR$/RBGS/urls.py" />
-        <option value="$PROJECT_DIR$/RBGS/settings.py" />
         <option value="$PROJECT_DIR$/website/models.py" />
         <option value="$PROJECT_DIR$/website/views.py" />
         <option value="$PROJECT_DIR$/website/templates/website/news.html" />
+        <option value="$PROJECT_DIR$/RBGS/settings.py" />
+        <option value="$PROJECT_DIR$/website/templates/website/index.html" />
       </list>
     </option>
   </component>
@@ -136,41 +144,41 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
+              <item name="RBGS" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RBGS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
-              <item name="photogallery" type="462c0819:PsiDirectoryNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,7 +187,7 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../photogallery" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="node.js.detected.package.stylelint" value="true" />
   </component>
@@ -222,17 +230,17 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19515885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21028744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3697479" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3697479" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3697479" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -309,9 +317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -449,21 +454,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/website/static/website/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/website/static/website/js/jquery.min.js" />
     <entry file="file://$PROJECT_DIR$/website/templates/website/carousel.html" />
-    <entry file="file://$PROJECT_DIR$/website/templates/website/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/website/templates/website/program.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -567,9 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/website/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
+        <state relative-caret-position="1717">
           <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -582,33 +573,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RBGS/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="123" column="21" lean-forward="false" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RBGS/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="77" lean-forward="false" selection-start-line="14" selection-start-column="77" selection-end-line="14" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../photogallery/gallery/templates/gallery/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
-          <folding />
+        <state relative-caret-position="1122">
+          <caret line="66" column="70" lean-forward="true" selection-start-line="66" selection-start-column="70" selection-end-line="66" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/website/templates/website/news.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        <state relative-caret-position="17">
+          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../photogallery/gallery/templates/gallery/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RBGS/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/website/templates/website/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="61" column="59" lean-forward="true" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="59" />
           <folding />
         </state>
       </provider>

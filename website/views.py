@@ -2,13 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent
 from django.forms import ModelForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 import time
 import calendar
+
+
+from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent, Alumni, ResearchTitle
 
 class ProgramForm(ModelForm):
     class Meta:
@@ -65,6 +67,18 @@ def outreach(request):
 	except EmptyPage:
 		outreach = paginator.page(paginator.num_pages)
 	return render(request, 'website/outreach.html', {'outreach': outreach})
+
+def alumni(request):
+	alumni_list = Alumni.objects.all().order_by('alumni_name')
+	page = request.GET.get('page', 1)
+	paginator = Paginator(alumni_list, 8)
+	try:
+		alumni = paginator.page(page)
+	except PageNotAnInteger:
+		alumni = paginator.page(1)
+	except EmptyPage:
+		alumni = paginator.page(paginator.num_pages)
+	return render(request, 'website/alumni.html', {'alumni': alumni})
 
 def program_item(request, pk, template_name='website/program_item.html'):
 	program = get_object_or_404(Program, pk=pk)
@@ -179,3 +193,54 @@ def mkmonth_lst():
 		for m in range(start, end, -1):
 			months.append((y, m, calendar.month_name[m]))
 	return months
+
+
+
+
+
+def login(request, template_name='website/login.html'):
+	return render(request, template_name)
+
+def dashboard(request, template_name='website/dashboard.html'):
+	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	events_count = events_list.count()
+	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	latest_news = news_list[0]
+	news_count = news_list.count()
+	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
+	outreach_count = outreach_list.count()
+	alumni_list = Alumni.objects.all().order_by('alumni_name')
+	alumni_count = alumni_list.count()
+	research_list = ResearchTitle.objects.all().order_by('research_title')
+	research_count = research_list.count()
+	context = {'events_list':events_list, 'events_count':events_count,
+			   'news_list':news_list,'news_count':news_count,
+			   'latest_news':latest_news,'outreach_list':outreach_list,
+			   'outreach_count':outreach_count, 'alumni_list':alumni_list, 'alumni_count':alumni_count,
+			   'research_list':research_list, 'research_count':research_count
+			   }
+	return render(request, template_name, context)
+
+def postlist(request, string, template_name='website/post-list.html'):
+	context = {}
+	if string=='News':
+		context = NewsPost.objects.all().order_by('-news_date','-news_time')
+	if string=='Events':
+		context = UpcomingEvent.objects.all().order_by('event_date')
+	if string=='Outreach':
+		context = OutreachPost.objects.all().order_by('-outreach_date')
+	if string=='Research':
+		context = ResearchTitle.objects.all().order_by('research_title')
+	if string=='Alumni':
+		context = Alumni.objects.all().order_by('alumni_name')
+
+	page = request.GET.get('page', 1)
+	paginator = Paginator(context, 10)
+
+	try:
+		content = paginator.page(page)
+	except PageNotAnInteger:
+		content = paginator.page(1)
+	except EmptyPage:
+		content = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'content':content,'post':string})

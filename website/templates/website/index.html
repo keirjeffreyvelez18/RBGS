@@ -19,7 +19,7 @@
                           </a>
                         </li>
                         <li class="nav-item dropdown menu-large ml-4">
-                          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Programs</a>
+                          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="programs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Academic Programs</a>
                           <div class="dropdown-menu" aria-labelledby="dropdown07">
                                 <a class="dropdown-item" href="/list">All Programs</a>
                                 <a class="dropdown-item" href="/program">Program Departments</a>
@@ -35,14 +35,26 @@
 
                           </div>
                         </li>
+                        <!--<li class="nav-item ml-4 dropdown">-->
+                            <!--<a class="nav-link dropdown-toggle" href="#" id="userMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                                <!--Members-->
+                            <!--</a>-->
+                            <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu2">-->
+                                <!--<a class="dropdown-item" href="/alumni">Alumni</a>-->
+                                <!--<a class="dropdown-item" href="/faculty">Faculty</a>-->
+                            <!--</div>-->
+                        <!--</li>-->
                         <li class="nav-item ml-4">
-                          <a class="nav-link" href="/faculty">Faculty</a>
+                          <a class="nav-link ml-2" href="/alumni">Alumni</a>
                         </li>
                         <li class="nav-item ml-4">
-                          <a class="nav-link ml-4" href="/research">Researches</a>
+                          <a class="nav-link ml-2" href="/faculty">Faculty</a>
                         </li>
                         <li class="nav-item ml-4">
-                          <a class="nav-link" href="/outreach">Outreach</a>
+                          <a class="nav-link ml-2" href="/research">Research</a>
+                        </li>
+                        <li class="nav-item ml-4">
+                          <a class="nav-link" href="/outreach">Community Extension</a>
                         </li>
                         <li class="nav-item ml-4">
                           <a class="nav-link" href="/contactus">Contact Us</a>
@@ -85,7 +97,7 @@
         <div class="carousel-item">
             <div class="view">
                 <img class="d-block w-100 align-content-center" src="{% static 'website/images/UNO-R.jpg' %}" alt="Second slide">
-                <div class="mask rgba-black-strong"></div>
+                <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
                 <h2 class="h3-responsive">Upcoming: {{events.event_name}}</h2>
@@ -96,7 +108,7 @@
             <!--Mask color-->
             <div class="view">
                 <img class="d-block w-100" src="{{outreach.outreach_image.url}}" alt="Third slide">
-                <div class="mask rgba-black-strong"></div>
+                <div class="mask rgba-black-light"></div>
             </div>
             <div class="carousel-caption">
                 <h3 class="h3-responsive">Most Recent Outreach: {{outreach.outreach_title}}</h3>
@@ -117,7 +129,7 @@
 <span style="font-family: 'Calibri Light'; font-size: large" id="aboutrbgs">
     <div class="container">
         <section class="text-center text-dark">
-            <h1 class="py-5 font-weight-bold ">What is Recoletos de Bacolod Graduate Schoo?</h1>
+            <h1 class="py-5 font-weight-bold ">What is Recoletos de Bacolod Graduate School?</h1>
             <p class="px-5 mb-5 pb-3 lead text-dark">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             aliqua. Ut enim ad minim veniam.</p>
             <div class="row">
@@ -145,7 +157,7 @@
             </div>
         </section>
     </div>
-<div class="card card-image" style="background-image: url('{% static "website/images/UNO-R.jpg" %}'); background-attachment:fixed; background-position:center;">
+<div class="card mt-4 card-image" style="background-image: url('{% static "website/images/UNO-R.jpg" %}'); background-attachment:fixed; background-position:center;">
 
     <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
         <div class="container">
@@ -175,7 +187,7 @@
     <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
         <div class="container">
             <h1 class="yellow-text"><i class="fa fa-graduation-cap"></i> About The University</h1>
-            <h3 class="card-title pt-2"><strong>Be in the know how did the university came into being.</strong></h3>
+            <h3 class="card-title pt-2"><strong>Be in the know how the university came into being.</strong></h3>
             <p>
                 <a href="http://www.uno-r.edu.ph/about" class="btn btn-lg btn-outline-yellow"><span class="white-text">Read More</span></a>
             </p>

@@ -35,8 +35,14 @@
 
                           </div>
                         </li>
-                        <li class="nav-item ml-4">
-                          <a class="nav-link" href="/faculty">Faculty</a>
+                        <li class="nav-item ml-4 dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Members
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu2">
+                                <a class="dropdown-item" href="/alumni">Alumni</a>
+                                <a class="dropdown-item" href="/faculty">Faculty</a>
+                            </div>
                         </li>
                         <li class="nav-item ml-4">
                           <a class="nav-link ml-4" href="/research">Researches</a>
@@ -136,56 +142,5 @@
             </div>
         </div>
     </div>
-
-
-
-        <!--<div class="row">-->
-          <!--<div class="col-lg-12">-->
-			<!--<div id = "map"> </div>-->
-			    <!--<script>-->
-      <!--function initMap() {-->
-        <!--var uluru = {lat: 10.6580132, lng: 122.9485751};-->
-        <!--var map = new google.maps.Map(document.getElementById('map'), {-->
-          <!--zoom: 18,-->
-          <!--center: uluru-->
-        <!--});-->
-        <!--var marker = new google.maps.Marker({-->
-          <!--position: uluru,-->
-          <!--map: map-->
-        <!--});-->
-      <!--}-->
-    <!--</script>-->
-    <!--<script async defer-->
-    <!--src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCuj4s_5a_cpvR3viO_IvLk2mlSSWHUGNU&callback=initMap">-->
-    <!--</script>-->
-
-          <!--</div>-->
-        <!--</div>-->
-<!--</div>-->
-
-<!--<div class="container">-->
-      <!--<div class="row">-->
-        <!--<div class="col-sm-8">-->
-          <!--<h2 class="mt-4">How to find us</h2>-->
-          <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>-->
-          <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>-->
-        <!--</div>-->
-        <!--<div class="col-sm-4">-->
-          <!--<h2 class="mt-4">Contact Us</h2>-->
-          <!--<address>-->
-            <!--<strong>University of Negros Occidental - Recoletos</strong>-->
-            <!--<br>#51 Lizares Avenue-->
-            <!--<br>Bacolod City, Negros Occidental 6100-->
-            <!--<br>-->
-          <!--</address>-->
-          <!--<address>-->
-            <!--<abbr title="Phone">P:</abbr>-->
-            <!--(034)-433-2449-->
-            <!--<br>-->
-            <!--<abbr title="Email">E:</abbr>-->
-            <!--<a href="mailto:#">unorbgs2016@gmail.com</a>-->
-          <!--</address>-->
-        <!--</div>-->
-      <!--</div>-->
-    </div>
+</div>
 {% endblock %}
