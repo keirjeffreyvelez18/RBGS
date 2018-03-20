@@ -27,7 +27,7 @@ def list(request):
 		programs = paginator.page(1)
 	except EmptyPage:
 		programs = paginator.page(paginator.num_pages)
-	return render(request, 'website/list.html', {'programs': programs})
+	return render(request, 'website/list.html', {'programs': programs, 'list':"active"})
 
 def news(request, template_name='website/news.html'):
 	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
@@ -41,7 +41,7 @@ def news(request, template_name='website/news.html'):
 		news = paginator.page(1)
 	except EmptyPage:
 		news = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'news' : news,"months":months})
+	return render(request, template_name, {'news' : news,"months":months, 'new': "active"})
 
 def upcomingevents(request, template_name='website/upcomingevents.html'):
 	events_list = UpcomingEvent.objects.all().order_by('event_date')
@@ -54,7 +54,7 @@ def upcomingevents(request, template_name='website/upcomingevents.html'):
 		events = paginator.page(1)
 	except EmptyPage:
 		events = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'events' : events})
+	return render(request, template_name, {'events' : events, 'new':"active"})
 
 def outreach(request):
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
@@ -66,7 +66,7 @@ def outreach(request):
 		outreach = paginator.page(1)
 	except EmptyPage:
 		outreach = paginator.page(paginator.num_pages)
-	return render(request, 'website/outreach.html', {'outreach': outreach})
+	return render(request, 'website/outreach.html', {'outreach': outreach, 'out': "active"})
 
 def alumni(request):
 	alumni_list = Alumni.objects.all().order_by('alumni_name')
@@ -78,32 +78,34 @@ def alumni(request):
 		alumni = paginator.page(1)
 	except EmptyPage:
 		alumni = paginator.page(paginator.num_pages)
-	return render(request, 'website/alumni.html', {'alumni': alumni})
+	return render(request, 'website/alumni.html', {'alumni': alumni, 'a':"active"})
 
 def program_item(request, pk, template_name='website/program_item.html'):
 	program = get_object_or_404(Program, pk=pk)
-	return render(request, template_name, {'object': program})
+	return render(request, template_name, {'object': program , 'list':"active"})
 
 def news_item(request, pk, template_name='website/news_item.html'):
 	news = get_object_or_404(NewsPost, pk=pk)
-	return render(request, template_name, {'object': news})
+	return render(request, template_name, {'object': news, 'new':"active"})
 
 def item_outreach(request, pk, template_name='website/outreach_item.html'):
 	outreach = get_object_or_404(OutreachPost, pk=pk)
-	return render(request, template_name, {'object': outreach })
+	return render(request, template_name, {'object': outreach , 'out': "active"})
 
 def education(request, template_name='website/list_filtered.html'):
 	programs = Program.objects.filter(program_department__exact="Education")
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Education"
-	return render(request, template_name, data )
+	data['list'] = "active"
+	return render(request, template_name, data)
 
 def business(request, template_name='website/list_filtered.html'):
 	programs = Program.objects.filter(program_department__exact="Business Management and Administration")
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Business Management and Administration"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def administration(request, template_name='website/list_filtered.html'):
@@ -111,6 +113,7 @@ def administration(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Public Administration and Governance"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def management(request, template_name='website/list_filtered.html'):
@@ -118,6 +121,7 @@ def management(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Development Management"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def computer_studies(request, template_name='website/list_filtered.html'):
@@ -125,6 +129,7 @@ def computer_studies(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Computer Studies"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def criminal_justice(request, template_name='website/list_filtered.html'):
@@ -132,6 +137,7 @@ def criminal_justice(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Criminal Justice Education"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def psychology(request, template_name='website/list_filtered.html'):
@@ -139,6 +145,7 @@ def psychology(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Psychology and Guidance and Counseling"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def nursing(request, template_name='website/list_filtered.html'):
@@ -146,21 +153,20 @@ def nursing(request, template_name='website/list_filtered.html'):
 	data = {}
 	data['object_list'] = programs
 	data['dept'] = "Nursing"
+	data['list'] = "active"
 	return render(request, template_name, data )
 
 def index (request, template_name='website/index.html'):
 	news = NewsPost.objects.order_by('-news_date','-news_time')[0]
 	events = UpcomingEvent.objects.order_by('event_date','event_time')[0]
 	outreach = OutreachPost.objects.order_by('-outreach_date')[0]
-	return render(request, template_name, {'news':news,'events':events,'outreach':outreach})
+	return render(request, template_name, {'news':news,'events':events,'outreach':outreach, 'index':"active"})
 
-def program(request):
-	template = loader.get_template('website/program.html')
-	return HttpResponse(template.render({}, request))
+def program(request, template_name='website/program.html'):
+	return render(request, template_name, {'list':"active"})
 
-def research(request):
-	template = loader.get_template('website/research.html')
-	return HttpResponse(template.render({}, request))
+def research(request, template_name='website/research.html'):
+	return render(request, template_name, {'research':"active"})
 
 def faculty(request, template_name='website/faculty.html'):
 	firstsem = FacultyMember.objects.filter(First_Semester__exact=True)
@@ -168,11 +174,11 @@ def faculty(request, template_name='website/faculty.html'):
 	data = {}
 	data['firstsem'] = firstsem
 	data['secondsem'] = secondsem
+	data['faculty'] = "active"
 	return render(request, template_name, data )
 
-def contactus(request):
-	template = loader.get_template('website/contactus.html')
-	return HttpResponse(template.render({}, request))
+def contactus(request, template_name="website/contactus.html"):
+	return render(request, template_name, {'contact': "active"})
 
 def mkmonth_lst():
 	if not NewsPost.objects.count(): return []
@@ -193,10 +199,6 @@ def mkmonth_lst():
 		for m in range(start, end, -1):
 			months.append((y, m, calendar.month_name[m]))
 	return months
-
-
-
-
 
 def login(request, template_name='website/login.html'):
 	return render(request, template_name)
@@ -244,3 +246,18 @@ def postlist(request, string, template_name='website/post-list.html'):
 	except EmptyPage:
 		content = paginator.page(paginator.num_pages)
 	return render(request, template_name, {'content':content,'post':string})
+
+def search(request, template_name='website/search.html'):
+	keyword = request.POST.get('keyword')
+	search_list = NewsPost.objects.filter(news_title__icontains=keyword)
+	page = request.GET.get('page', 1)
+	paginator = Paginator(search_list, 3)
+	months = mkmonth_lst()
+
+	try:
+		news = paginator.page(page)
+	except PageNotAnInteger:
+		news = paginator.page(1)
+	except EmptyPage:
+		news = paginator.page(paginator.num_pages)
+	return render(request, template_name, {'news' : news, "months":months, 'keyword':keyword})

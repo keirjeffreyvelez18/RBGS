@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^login', views.login, name='login'),
     url(r'^dashboard', views.dashboard, name='dashboard'),
     url(r'^postlist/(?P<string>[\w\-]+)/$', views.postlist, name='postlist'),
+    url(r'^search', views.search, name='search'),
+
 ]
