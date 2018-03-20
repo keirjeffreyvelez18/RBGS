@@ -54,7 +54,7 @@ def upcomingevents(request, template_name='website/upcomingevents.html'):
 		events = paginator.page(1)
 	except EmptyPage:
 		events = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'events' : events, 'new':"active"})
+	return render(request, template_name, {'events' : events,'new':"active"})
 
 def outreach(request):
 	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
@@ -248,16 +248,39 @@ def postlist(request, string, template_name='website/post-list.html'):
 	return render(request, template_name, {'content':content,'post':string})
 
 def search(request, template_name='website/search.html'):
-	keyword = request.POST.get('keyword')
-	search_list = NewsPost.objects.filter(news_title__icontains=keyword)
-	page = request.GET.get('page', 1)
-	paginator = Paginator(search_list, 3)
-	months = mkmonth_lst()
+	if 'keyword' in request.GET and request.GET['keyword']:
+		keyword = request.POST.get('keyword')
+		request.session['keyword'] = keyword
+		search_list = NewsPost.objects.filter(news_title__icontains=keyword).order_by('-news_date','-news_time')
+		page = request.GET.get('page', 1)
+		paginator = Paginator(search_list, 3)
+		months = mkmonth_lst()
 
-	try:
-		news = paginator.page(page)
-	except PageNotAnInteger:
-		news = paginator.page(1)
-	except EmptyPage:
-		news = paginator.page(paginator.num_pages)
-	return render(request, template_name, {'news' : news, "months":months, 'keyword':keyword})
+		try:
+			news = paginator.page(page)
+		except PageNotAnInteger:
+			news = paginator.page(1)
+		except EmptyPage:
+			news = paginator.page(paginator.num_pages)
+
+		data = {'news':news, "months":months, 'keyword':keyword}
+
+		return render(request, template_name, data)
+	elif request.session['keyword']:
+		search_list = NewsPost.objects.filter(news_title__icontains=request.session['keyword']).order_by('-news_date', '-news_time')
+		page = request.GET.get('page', 1)
+		paginator = Paginator(search_list, 3)
+		months = mkmonth_lst()
+
+		try:
+			news = paginator.page(page)
+		except PageNotAnInteger:
+			news = paginator.page(1)
+		except EmptyPage:
+			news = paginator.page(paginator.num_pages)
+
+		data = {'news': news, "months": months, 'keyword': request.session['keyword']}
+
+		return render(request, template_name, data)
+	else:
+		return render(request, template_name, {})

@@ -40,11 +40,10 @@
             </span>
             <form class="form-inline" method="post" action="search">
                 {% csrf_token %}
-                <div class="md-form mt-0">
-                    <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Search" aria-label="Search" required>
+                <div class="md-form mt-0 fa fa-search">
+                    <input class="form-control mr-sm-2 " value="{{keyword}}" type="text" name="keyword" placeholder="Search" aria-label="Search" required>
                 </div>
-                    <input type="submit" class="btn btn-primary" value="Search">
-            </form>
+                    <input type="submit" class="btn btn-primary btn-sm" value="Search">
 
           </div>
         </div>
