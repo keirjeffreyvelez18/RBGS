@@ -85,7 +85,7 @@
               <div class="col-lg-5 col-xl-5 pb-3">
                     <!--Featured image-->
                     <div class="view overlay rounded z-depth-2">
-                        <img src="{{ NewsPost.news_image.url }}" alt="Sample image for first version of blog listing"
+                        <img src="{{ NewsPost.image.url }}" alt="Sample image for first version of blog listing"
                             class="img-fluid">
                         <a>
                             <div class="mask rgba-white-slight"></div>
@@ -95,12 +95,14 @@
                 <div class="col-lg-7 col-xl-7">
                     <!--Excerpt-->
                     <h3 class="mb-4 font-weight-bold dark-grey-text">
-                        <strong>{{NewsPost.news_title}}</strong>
+                        <strong>{{NewsPost.title}}</strong>
+
                     </h3>
                     <p>
-                        {{NewsPost.news_shortdesc|slice:"0:100"}}...
+                        {{NewsPost.contents|slice:"0:100"}}...
+
                     </p>
-                    <p>by <strong>{{NewsPost.news_author}}</strong>, {{NewsPost.news_date}}</p>
+                    <p>by <strong>{{NewsPost.author}}</strong>, {{NewsPost.date}}</p>
                     <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary btn-md mb-3">Read more</a>
                 </div>
             </div>

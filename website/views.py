@@ -8,7 +8,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 import time
 import calendar
-
+from operator import attrgetter
+from itertools import chain
 
 from .models import Program, NewsPost, FacultyMember, OutreachPost, UpcomingEvent, Alumni, ResearchTitle
 
@@ -30,7 +31,7 @@ def list(request):
 	return render(request, 'website/list.html', {'programs': programs, 'list':"active"})
 
 def news(request, template_name='website/news.html'):
-	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	news_list = NewsPost.objects.all().order_by('date','time')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(news_list, 3)
 	months = mkmonth_lst()
@@ -44,9 +45,11 @@ def news(request, template_name='website/news.html'):
 	return render(request, template_name, {'news' : news,"months":months, 'new': "active"})
 
 def upcomingevents(request, template_name='website/upcomingevents.html'):
-	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	events_list = UpcomingEvent.objects.all().order_by('date')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(events_list, 3)
+
+
 
 	try:
 		events = paginator.page(page)
@@ -57,7 +60,7 @@ def upcomingevents(request, template_name='website/upcomingevents.html'):
 	return render(request, template_name, {'events' : events,'new':"active"})
 
 def outreach(request):
-	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
+	outreach_list = OutreachPost.objects.all().order_by('-date')
 	page = request.GET.get('page', 1)
 	paginator = Paginator(outreach_list, 6)
 	try:
@@ -157,10 +160,10 @@ def nursing(request, template_name='website/list_filtered.html'):
 	return render(request, template_name, data )
 
 def index (request, template_name='website/index.html'):
-	news = NewsPost.objects.order_by('-news_date','-news_time')[0]
-	events = UpcomingEvent.objects.order_by('event_date','event_time')[0]
-	outreach = OutreachPost.objects.order_by('-outreach_date')[0]
-	return render(request, template_name, {'news':news,'events':events,'outreach':outreach, 'index':"active"})
+	news = NewsPost.objects.all().order_by('date','time')[0]
+	events = UpcomingEvent.objects.all().order_by('date','time')[0]
+	outreach = OutreachPost.objects.all().order_by('date')[0]
+	return render(request, template_name, {'news':news,'events':events,'outreach':outreach,'index':"active"})
 
 def program(request, template_name='website/program.html'):
 	return render(request, template_name, {'list':"active"})
@@ -185,9 +188,9 @@ def mkmonth_lst():
 
 	# set up vars
 	year, month = time.localtime()[:2]
-	first = NewsPost.objects.order_by("news_date")[0]
-	fyear = first.news_date.year
-	fmonth = first.news_date.month
+	first = NewsPost.objects.order_by("date")[0]
+	fyear = first.date.year
+	fmonth = first.date.month
 	months = []
 
 	# loop over years and months
@@ -204,12 +207,12 @@ def login(request, template_name='website/login.html'):
 	return render(request, template_name)
 
 def dashboard(request, template_name='website/dashboard.html'):
-	events_list = UpcomingEvent.objects.all().order_by('event_date')
+	events_list = UpcomingEvent.objects.all().order_by('date')
 	events_count = events_list.count()
-	news_list = NewsPost.objects.all().order_by('-news_date','-news_time')
+	news_list = NewsPost.objects.all().order_by('-date','-time')
 	latest_news = news_list[0]
 	news_count = news_list.count()
-	outreach_list = OutreachPost.objects.all().order_by('-outreach_date')
+	outreach_list = OutreachPost.objects.all().order_by('-date')
 	outreach_count = outreach_list.count()
 	alumni_list = Alumni.objects.all().order_by('alumni_name')
 	alumni_count = alumni_list.count()
@@ -248,12 +251,16 @@ def postlist(request, string, template_name='website/post-list.html'):
 	return render(request, template_name, {'content':content,'post':string})
 
 def search(request, template_name='website/search.html'):
-	if 'keyword' in request.GET and request.GET['keyword']:
+
+
+	if request.POST.get('keyword'):
 		keyword = request.POST.get('keyword')
-		request.session['keyword'] = keyword
-		search_list = NewsPost.objects.filter(news_title__icontains=keyword).order_by('-news_date','-news_time')
+		request.session['key'] = keyword
+		search_list1 = UpcomingEvent.objects.filter(title__icontains=keyword).order_by('date')
+		search_list = NewsPost.objects.filter(title__icontains=keyword).order_by('date','time')
+		results = sorted(chain(search_list1, search_list), key=attrgetter('date'))
 		page = request.GET.get('page', 1)
-		paginator = Paginator(search_list, 3)
+		paginator = Paginator(results, 3)
 		months = mkmonth_lst()
 
 		try:
@@ -266,10 +273,12 @@ def search(request, template_name='website/search.html'):
 		data = {'news':news, "months":months, 'keyword':keyword}
 
 		return render(request, template_name, data)
-	elif request.session['keyword']:
-		search_list = NewsPost.objects.filter(news_title__icontains=request.session['keyword']).order_by('-news_date', '-news_time')
+	elif request.session['key']:
+		search_list1 = UpcomingEvent.objects.filter(title__icontains=request.session['key']).order_by('date')
+		search_list = NewsPost.objects.filter(title__icontains=request.session['key']).order_by('date', 'time')
+		results = sorted(chain(search_list1, search_list),key=attrgetter('date'))
 		page = request.GET.get('page', 1)
-		paginator = Paginator(search_list, 3)
+		paginator = Paginator(results, 3)
 		months = mkmonth_lst()
 
 		try:
@@ -279,8 +288,9 @@ def search(request, template_name='website/search.html'):
 		except EmptyPage:
 			news = paginator.page(paginator.num_pages)
 
-		data = {'news': news, "months": months, 'keyword': request.session['keyword']}
+		data = {'news': news, "months": months, 'keyword': request.session['key']}
 
 		return render(request, template_name, data)
 	else:
 		return render(request, template_name, {})
+

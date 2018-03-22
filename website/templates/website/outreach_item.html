@@ -7,21 +7,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8">
-            <h1 class="mt-4">{{object.outreach_title}}</h1>
+            <h1 class="mt-4">{{object.title}}</h1>
             <p class="lead">
                 by
-                <a href="/program">{{ object.outreach_author }}</a>
+                <a href="/program">{{ object.author }}</a>
             </p>
             <hr>
-            <p>Posted on {{ object.outreach_date }}</p>
+            <p>Posted on {{ object.date }}</p>
             <hr>
-            <img class="img-fluid rounded" src="{{ object.outreach_image.url }}" alt="">
+            <img class="img-fluid rounded" src="{{ object.image.url }}" alt="">
             <hr>
-            <p class="lead">
-                {{ object.outreach_content }}
-            </p>
-            <p> {{ object.outreach_content }} </p>
-            <p> {{ object.outreach_content }} </p>
+            <p class="lead">{{ object.contents }}</p>
+            <br>
+            <br>
         </div>
     </div>
 </div>

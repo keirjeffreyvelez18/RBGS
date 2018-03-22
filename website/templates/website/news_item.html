@@ -17,17 +17,17 @@
         <div class="col-lg-8">
             <div class="card card-cascade wider reverse">
                 <div class="view overlay">
-                    <img src="{{ object.news_image.url }}" class="card-img-top img-fluid">
+                    <img src="{{ object.image.url }}" class="card-img-top img-fluid">
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
                 <div class="card-body text-center">
-                    <h3 class="card-title indigo-text"><strong>{{object.news_title}}</strong></h3>
+                    <h3 class="card-title indigo-text"><strong>{{object.title}}</strong></h3>
                     <p class="card-text">
-                        {{object.news_description}}
+                        {{object.contents}}
                     </p>
-                    <small> Posted by <span class="indigo-text"><strong>{{object.news_author}}</strong></span> on {{ object.news_date }} at {{ object.news_time }}</small>
+                    <small> Posted by <span class="indigo-text"><strong>{{object.author}}</strong></span> on {{ object.date }} at {{ object.time }}</small>
                 </div>
             </div>
         </div>

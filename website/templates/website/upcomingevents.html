@@ -16,15 +16,15 @@
         {% for UpcomingEvent in events %}
         <div class="col-lg-12 col-md-8">
           <div class="card mb-3">
-            <!--<img src="{{ UpcomingEvent.news_image.url }}" alt="" class="card-img-top">-->
+            <img src="{{ UpcomingEvent.image.url }}" alt="" class="card-img-top">
             <div class="card-block card-body">
               <h4 class="card-title">
-                <a href="">{{UpcomingEvent.event_name}}</a>
+                <a href="">{{UpcomingEvent.title}}</a>
               </h4>
                 <p class="card-text">
-                    {{ UpcomingEvent.event_details }}
+                    {{ UpcomingEvent.contents }}
                     <br>
-                    {{ UpcomingEvent.event_date}}
+                    {{ UpcomingEvent.date}}
                 </p>
               <p class="card-text">
                   <small class="text-muted">
