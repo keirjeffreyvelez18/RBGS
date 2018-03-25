@@ -18,7 +18,7 @@ class ProgramForm(ModelForm):
         model = Program
         fields = ['program_name','program_description','program_department']
 
-def list(request):
+def lists(request):
 	program_list = Program.objects.all()
 	page = request.GET.get('page', 1)
 	paginator = Paginator(program_list, 8)
@@ -256,11 +256,14 @@ def search(request, template_name='website/search.html'):
 	if request.POST.get('keyword'):
 		keyword = request.POST.get('keyword')
 		request.session['key'] = keyword
-		search_list1 = UpcomingEvent.objects.filter(title__icontains=keyword).order_by('date')
-		search_list = NewsPost.objects.filter(title__icontains=keyword).order_by('date','time')
-		results = sorted(chain(search_list1, search_list), key=attrgetter('date'))
+		news_list = NewsPost.objects.filter(title__icontains=keyword)
+		events_list = UpcomingEvent.objects.filter(title__icontains=keyword)
+		out_list = OutreachPost.objects.filter(title__icontains=keyword)
+
+		result_list = list(news_list) + list(events_list) + list(out_list)
+
 		page = request.GET.get('page', 1)
-		paginator = Paginator(results, 3)
+		paginator = Paginator(result_list, 3)
 		months = mkmonth_lst()
 
 		try:
@@ -274,11 +277,14 @@ def search(request, template_name='website/search.html'):
 
 		return render(request, template_name, data)
 	elif request.session['key']:
-		search_list1 = UpcomingEvent.objects.filter(title__icontains=request.session['key']).order_by('date')
-		search_list = NewsPost.objects.filter(title__icontains=request.session['key']).order_by('date', 'time')
-		results = sorted(chain(search_list1, search_list),key=attrgetter('date'))
+		news_list = NewsPost.objects.filter(title__icontains=request.session['key'])
+		events_list = UpcomingEvent.objects.filter(title__icontains=request.session['key'])
+		out_list = OutreachPost.objects.filter(title__icontains=request.session['key'])
+
+		result_list = list(news_list) + list(events_list) + list(out_list)
+
 		page = request.GET.get('page', 1)
-		paginator = Paginator(results, 3)
+		paginator = Paginator(result_list, 3)
 		months = mkmonth_lst()
 
 		try:

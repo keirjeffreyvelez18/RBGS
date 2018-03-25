@@ -100,7 +100,6 @@
                     </h3>
                     <p>
                         {{NewsPost.contents|slice:"0:100"}}...
-
                     </p>
                     <p>by <strong>{{NewsPost.author}}</strong>, {{NewsPost.date}}</p>
                     <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary btn-md mb-3">Read more</a>
