@@ -23,8 +23,7 @@ class UpcomingEvent(models.Model):
 
 class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)
-	research_description = models.CharField(null="", max_length=10000)
-	research_abstract = models.CharField(null="", max_length=10000)
+	research_abstract = models.TextField(null="", max_length=50000)
 	research_author = models.CharField(null="", max_length=1000)
 	research_resources = models.CharField(null="", max_length=10000)
 

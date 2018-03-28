@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^alumni', views.alumni, name='alumni'),
     url(r'^faculty', views.faculty, name='faculty'),
     url(r'^research', views.research, name='research'),
+    url(r'^Research/(?P<pk>\d+)$', views.research_item, name='research_item'),
     url(r'^contactus', views.contactus, name='contactus'),
     url(r'^outreach', views.outreach, name='outreach'),
     url(r'^Outreaches/(?P<pk>\d+)$', views.item_outreach, name='outreach_item'),

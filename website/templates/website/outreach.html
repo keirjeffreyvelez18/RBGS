@@ -4,8 +4,7 @@
 
 {% block content %}
 <div class="container">
-      <h1 class="my-4">Community Extension
-      </h1>
+      <h1 class="my-4">Community Extension</h1>
       <div class="row card-group">
       {% for OutreachPost in outreach %}
         <div class="col-lg-4 mb-4">
@@ -22,10 +21,10 @@
               </a>
               <h5 class="indigo-text"><strong>{{ OutreachPost.date }}</strong></h5>
               <a href="{% url 'outreach_item' OutreachPost.id %}" class="d-flex justify-content-end"><h5>Read more</h5><span><i class="fa fa-chevron-right pl-2"></i></span></a>
+              <div>{{OutreachPost.exp}}</div>
             </div>
             <!--/.Card content-->
-
-        </div>
+            </div>
         </div>
       {% endfor %}
         <br>
