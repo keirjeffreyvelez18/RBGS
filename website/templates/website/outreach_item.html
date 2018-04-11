@@ -4,22 +4,24 @@
 
 
 {% block content %}
-<div class="container">
-    <div class="row">
+<div class="container my-4">
+    <div class="row justify-content-center">
         <div class="col-lg-8">
-            <h1 class="mt-4">{{object.title}}</h1>
-            <p class="lead">
-                by
-                <a href="/program">{{ object.author }}</a>
-            </p>
-            <hr>
-            <p>Posted on {{ object.date }}</p>
-            <hr>
-            <img class="img-fluid rounded" src="{{ object.image.url }}" alt="">
-            <hr>
-            <p class="lead">{{ object.contents }}</p>
-            <br>
-            <br>
+            <div class="card card-cascade wider reverse">
+                <div class="view overlay">
+                    <img src="{{ object.image.url }}" class="card-img-top img-fluid">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title indigo-text"><strong>{{object.title}}</strong></h3>
+                    <small> Author: <span class="indigo-text"><strong>{{object.author}}</strong></span> | Posted on {{object.date}}</small>
+                    <p class="card-text mt-4">
+                        {{object.contents}}
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

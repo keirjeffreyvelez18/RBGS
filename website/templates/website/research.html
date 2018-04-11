@@ -35,13 +35,14 @@
           <div class="col-md-4 mb-4">
             <div class="card h-100">
               <div class="card-body">
-                <h2 class="card-title">{{research.research_title}}</h2>
+                <p class="card-title leadzr">{{research.research_title}}</p>
                 <p class="card-text">
                   {{research.research_abstract|slice:"0:100"}}...
                 </p>
+                <p class="card-text small">by <span class="blue-text">{{research.research_author}}</span></p>
               </div>
               <div class="card-footer">
-                <a href="{% url 'research_item' research.id %}" class="btn btn-primary">More Info</a>
+                <a href="{% url 'research_item' research.id %}" class="btn btn-yellow">More Info</a>
               </div>
             </div>
           </div>
@@ -53,10 +54,10 @@
         <div class="col-md-12">
             {% if research_list.has_other_pages %}
                 <ul class="pagination justify-content-center">
-                    {% if news.has_previous %}
-                    <li class="page-item"><a class="page-link" href="?page={{ research_list.previous_page_number }}">Previous</a></li>
+                    {% if research_list.has_previous %}
+                        <li class="page-item"><a class="page-link" href="?page={{ research_list.previous_page_number }}">Previous</a></li>
                     {% else %}
-                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
                 {% endif %}
                 {% for i in research_list.paginator.page_range %}
                     {% if research_list.number == i %}
