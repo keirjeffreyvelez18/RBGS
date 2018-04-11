@@ -271,11 +271,11 @@ def dashboard(request, template_name='website/dashboard.html'):
 def postlist(request, string, template_name='website/post-list.html'):
 	context = {}
 	if string == 'News':
-		context = NewsPost.objects.all().order_by('-news_date', '-news_time')
+		context = NewsPost.objects.all().order_by('-date', '-time')
 	if string == 'Events':
-		context = UpcomingEvent.objects.all().order_by('event_date')
+		context = UpcomingEvent.objects.all().order_by('date')
 	if string == 'Outreach':
-		context = OutreachPost.objects.all().order_by('-outreach_date')
+		context = OutreachPost.objects.all().order_by('date')
 	if string == 'Research':
 		context = ResearchTitle.objects.all().order_by('research_title')
 	if string == 'Alumni':

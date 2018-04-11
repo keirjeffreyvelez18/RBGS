@@ -49,11 +49,11 @@
                 <ul class="list-group">
                     {% for content in content %}
                         {% if post == "News" %}
-                            <li class="list-group-item">{{content.news_title}}</li>
+                            <li class="list-group-item">{{content.title}}</li>
                         {% elif post == "Events" %}
-                            <li class="list-group-item">{{content.event_name}}</li>
+                            <li class="list-group-item">{{content.title}}</li>
                         {% elif post == "Outreach" %}
-                            <li class="list-group-item">{{content.outreach_title}}</li>
+                            <li class="list-group-item">{{content.title}}</li>
                         {% elif post == "Research" %}
                             <li class="list-group-item">{{content.research_title}}</li>
                         {% elif post == "Alumni" %}
