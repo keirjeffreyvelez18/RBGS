@@ -294,49 +294,50 @@ def postlist(request, string, template_name='website/post-list.html'):
 
 
 def search(request, template_name='website/search.html'):
-	if request.POST.get('keyword'):
-		keyword = request.POST.get('keyword')
-		request.session['key'] = keyword
-		news_list = NewsPost.objects.filter(title__icontains=keyword)
-		events_list = UpcomingEvent.objects.filter(title__icontains=keyword)
-		out_list = OutreachPost.objects.filter(title__icontains=keyword)
+    if request.POST.get('keyword'):
+        keyword = request.POST.get('keyword')
+        request.session['key'] = keyword
+        news_list = NewsPost.objects.filter(title__icontains=keyword)
+        events_list = UpcomingEvent.objects.filter(title__icontains=keyword)
+        out_list = OutreachPost.objects.filter(title__icontains=keyword)
 
-		result_list = list(news_list) + list(events_list) + list(out_list)
+        result_list = list(news_list) + list(events_list) + list(out_list)
+        result_count = len(result_list)
 
-		page = request.GET.get('page', 1)
-		paginator = Paginator(result_list, 3)
-		months = mkmonth_lst()
+        page = request.GET.get('page', 1)
+        paginator = Paginator(result_list, 3)
+        months = mkmonth_lst()
 
-		try:
-			news = paginator.page(page)
-		except PageNotAnInteger:
-			news = paginator.page(1)
-		except EmptyPage:
-			news = paginator.page(paginator.num_pages)
+        try:
+        	news = paginator.page(page)
+        except PageNotAnInteger:
+        	news = paginator.page(1)
+        except EmptyPage:
+        	news = paginator.page(paginator.num_pages)
 
-		data = {'news': news, "months": months, 'keyword': keyword}
+        data = {'news': news, "months": months, 'keyword': keyword, 'result_count': result_count}
 
-		return render(request, template_name, data)
-	elif request.session['key']:
-		news_list = NewsPost.objects.filter(title__icontains=request.session['key'])
-		events_list = UpcomingEvent.objects.filter(title__icontains=request.session['key'])
-		out_list = OutreachPost.objects.filter(title__icontains=request.session['key'])
+        return render(request, template_name, data)
+    elif request.session['key']:
+        news_list = NewsPost.objects.filter(title__icontains=request.session['key'])
+        events_list = UpcomingEvent.objects.filter(title__icontains=request.session['key'])
+        out_list = OutreachPost.objects.filter(title__icontains=request.session['key'])
 
-		result_list = list(news_list) + list(events_list) + list(out_list)
+        result_list = list(news_list) + list(events_list) + list(out_list)
 
-		page = request.GET.get('page', 1)
-		paginator = Paginator(result_list, 3)
-		months = mkmonth_lst()
+        page = request.GET.get('page', 1)
+        paginator = Paginator(result_list, 3)
+        months = mkmonth_lst()
 
-		try:
-			news = paginator.page(page)
-		except PageNotAnInteger:
-			news = paginator.page(1)
-		except EmptyPage:
-			news = paginator.page(paginator.num_pages)
+        try:
+        	news = paginator.page(page)
+        except PageNotAnInteger:
+        	news = paginator.page(1)
+        except EmptyPage:
+        	news = paginator.page(paginator.num_pages)
 
-		data = {'news': news, "months": months, 'keyword': request.session['key']}
+        data = {'news': news, "months": months, 'keyword': request.session['key']}
 
-		return render(request, template_name, data)
-	else:
-		return render(request, template_name, {})
+        return render(request, template_name, data)
+    else:
+        return render(request, template_name, {})
