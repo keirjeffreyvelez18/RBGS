@@ -25,7 +25,7 @@ class ResearchTitle(models.Model):
 	research_title = models.CharField(null="", max_length=1000)
 	research_abstract = models.TextField(null="", max_length=50000)
 	research_author = models.CharField(null="", max_length=1000)
-	research_resources = models.CharField(null="", max_length=10000)
+	research_date = models.DateTimeField(null="")
 
 	def __str__(self):
 		return self.research_title+" by "+self.research_author
