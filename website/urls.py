@@ -28,5 +28,6 @@ urlpatterns = [
     url(r'^dashboard', views.dashboard, name='dashboard'),
     url(r'^postlist/(?P<string>[\w\-]+)/$', views.postlist, name='postlist'),
     url(r'^search', views.search, name='search'),
+    url(r'^admission', views.admission, name='admission'),
 
 ]

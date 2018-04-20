@@ -341,3 +341,7 @@ def search(request, template_name='website/search.html'):
         return render(request, template_name, data)
     else:
         return render(request, template_name, {})
+
+
+def admission(request, template_name='website/admission.html'):
+	return render(request, template_name, {'list': "active"})
